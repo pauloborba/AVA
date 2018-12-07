@@ -5,9 +5,6 @@ import { Roteiro } from "../models/Roteiro";
 export class RepositorioTurma {
     private _turmas: Turma[];
 
-
-    // TODO add / rmv roteiro
-
     public constructor() {
         this._turmas = [];
     }
@@ -112,17 +109,35 @@ export class RepositorioTurma {
         return null;
     }
 
-    public getRoteiro(idTurma: string): Roteiro {
+    public getRoteiro(idTurma: string, nome: string): Roteiro {
+        const rs = this.getRoteiros(idTurma);
+        if (rs) {
+            const r = this.findByRoteiroName(rs, nome);
+            if (r) {
+                return r;
+            }
+        }
         return null;
     }
 
-    public addRoteiro(): boolean {
-        
+    public addRoteiro(idTurma: string, roteiro: Roteiro): boolean {
+        const t = this.findById(idTurma);
+        if (t) {
+            if (!this.getRoteiro(idTurma, roteiro.nome)) {
+                t.roteiros.push(roteiro);
+                return true;
+            }
+        }
         return false;
     }
 
-    public removeRoteiro(): boolean {
-        
+    public removeRoteiro(idTurma:string, nome): boolean {
+        if (this.getRoteiro(idTurma, nome)) {
+            const t = this.findById(idTurma);
+            var i: number = t.roteiros.findIndex(p => p.nome === nome);
+            t.roteiros.splice(i, 1);
+            return true;
+        }
         return false;
     }
 
