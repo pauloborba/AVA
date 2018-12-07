@@ -1,5 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
+import { getTurmas, postTurma, putTurma, getTurma, deleteTurma } from './controllers/turma';
 
 export const app = express();
 export const port = process.env.PORT || 3000;
@@ -11,5 +13,17 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
     next();
 });
 app.use(bodyParser.json());
+
+app.get('/pessoas', getPessoas);
+app.get('/pessoa/:cpf', getPessoa);
+app.post('/pessoa', postPessoa);
+app.put('/pessoa', putPessoa);
+app.delete('/pessoa/:cpf', deletePessoa);
+
+app.get('/turmas', getTurmas);
+app.get('/turma/:id', getTurma);
+app.post('/turma', postTurma);
+app.put('/turma', putTurma);
+app.delete('/turma/:id', deleteTurma);
 
 export const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));

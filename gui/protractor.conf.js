@@ -7,10 +7,6 @@ exports.config = {
   baseUrl: 'http://localhost:4200/',
   capabilities: {
     browserName: 'chrome',
-    chromeOptions: {
-      // $ which google-chrome-stable
-      binary: '/home/mario/.local/bin/google-chrome-stable'
-    }
   },
   framework: 'custom',  // set to "custom" instead of cucumber.
   frameworkPath: require.resolve('protractor-cucumber-framework'),  // path relative to the current config file
