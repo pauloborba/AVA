@@ -1,14 +1,16 @@
-<h1>
-  CADASTRO DE NOVA PESSOA!!!
-</h1>
-<form>
-  <input #nome/>
-  <br/>
-  <input #CPF/>
-  <br/> 
-  <input #email/>
-  <br/>
-  <input #senha type="password"/>
-  <br/>
-  <button id="cadastrarButton" (click)="cadastroNovoPessoa(CPF.value, nome.value, email.value, senha.value)">Logar! </button>
-</form>
+<div>
+    <h1>
+        CADASTRO DE NOVA PESSOA!!!
+      </h1>
+      <form>
+        <input #nome/>
+        <br/>
+        <input #CPF/>
+        <br/> 
+        <input #email/>
+        <br/>
+        <input #senha type="password"/>
+        <br/>
+        <button id="cadastrarButton" (click)="cadastroNovoPessoa(CPF.value, nome.value, email.value, senha.value)">Logar! </button>
+      </form>
+</div>

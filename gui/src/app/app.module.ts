@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginBoxComponent } from './login-box/login-box.component';
 import { PessoaService } from './shared/pessoa.service';
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
-import { CadastroTurmaComponent } from './src/app/cadastro-turma/cadastro-turma.component';
+import { CadastroTurmaComponent } from './cadastro-turma/cadastro-turma.component';
+import { TurmaService } from './shared/turma.service';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,15 @@ import { CadastroTurmaComponent } from './src/app/cadastro-turma/cadastro-turma.
         path: 'cadastro-pessoa',
         component: CadastroPessoaComponent,
       },
+      {
+        path: 'cadastro-turma',
+        component: CadastroTurmaComponent,
+      }
     ]),
   ],
   providers: [
-    PessoaService
+    PessoaService,
+    TurmaService
   ],
   bootstrap: [AppComponent],
 })
