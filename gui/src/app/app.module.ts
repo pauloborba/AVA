@@ -3,20 +3,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { AlunosComponent } from './alunos/alunos.component';
-import { AlunoService } from './alunos/shared/aluno.service';
 import { AppComponent } from './app.component';
-import { AutoAvaliacaoComponent } from './autoAvaliacao/autoAvaliacao.component';
-import { MetasComponent } from './metas/metas.component';
-import { DiscrepanciasComponent } from './discrepancias/discrepancias.component';
+import { LoginBoxComponent } from './login-box/login-box.component';
+import { PessoaService } from './shared/pessoa.service';
+import { CadastroAlunosComponent } from './src/app/cadastro-alunos/cadastro-alunos.component';
+import { CadastroPessoaComponent } from './src/app/cadastro-pessoa/cadastro-pessoa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MetasComponent,
-    AlunosComponent,
-    AutoAvaliacaoComponent,
-    DiscrepanciasComponent,
+    LoginBoxComponent,
+    CadastroAlunosComponent,
+    CadastroPessoaComponent
   ],
   imports: [
     BrowserModule,
@@ -24,24 +22,18 @@ import { DiscrepanciasComponent } from './discrepancias/discrepancias.component'
     HttpModule,
     RouterModule.forRoot([
       {
-        path: 'alunos',
-        component: AlunosComponent,
+        path: 'login',
+        component: LoginBoxComponent,
       },
       {
-        path: 'metas',
-        component: MetasComponent,
-      },
-      {
-        path: 'autoAvaliacao',
-        component: AutoAvaliacaoComponent,
-      },
-      {
-        path: 'discrepancias',
-        component: DiscrepanciasComponent,
+        path: 'cadastro-pessoa',
+        component: CadastroPessoaComponent,
       },
     ]),
   ],
-  providers: [AlunoService],
+  providers: [
+    PessoaService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
