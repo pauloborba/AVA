@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginBoxComponent } from './login-box/login-box.component';
 import { PessoaService } from './shared/pessoa.service';
-import { CadastroAlunosComponent } from './src/app/cadastro-alunos/cadastro-alunos.component';
-import { CadastroPessoaComponent } from './src/app/cadastro-pessoa/cadastro-pessoa.component';
+import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
+import { CadastroTurmaComponent } from './src/app/cadastro-turma/cadastro-turma.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginBoxComponent,
-    CadastroAlunosComponent,
-    CadastroPessoaComponent
+    CadastroPessoaComponent,
+    CadastroTurmaComponent
   ],
   imports: [
     BrowserModule,
