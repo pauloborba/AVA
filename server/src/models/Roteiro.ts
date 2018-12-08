@@ -4,14 +4,14 @@ import { RespostaRoteiro } from "./RespostaRoteiro";
 export class Roteiro {
     private _id: string;
     private _nome: string;
-    private _questoes: Questao[];
+    private _questoes: Map<number, Questao>;
     // cpf aluno => respostas do roteiro
     private _respostasAlunos: Map<string, RespostaRoteiro>;
 
     public constructor() {
         this._id = "";
         this._nome = "";
-        this._questoes = [];
+        this._questoes = new Map<number, Questao>();
         this._respostasAlunos = new Map<string, RespostaRoteiro>();
     }
     get id(): string {
@@ -30,11 +30,11 @@ export class Roteiro {
         this._nome = value;
     }
 
-    get questoes(): Questao[] {
+    get questoes(): Map<number, Questao> {
         return this._questoes;
     }
 
-    set questoes(value: Questao[]) {
+    set questoes(value: Map<number, Questao>) {
         this._questoes = value;
     }
 
