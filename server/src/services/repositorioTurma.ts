@@ -48,7 +48,8 @@ export class RepositorioTurma {
         const t = this.findById(turmaId);
         if (t) {
             if (!this.hasInstrutor(turmaId, instrutor.cpf)) {
-                t.instrutores.push(instrutor);
+                const clone = instrutor.clone();
+                t.instrutores.push(clone);
                 return true;
             }
         }
@@ -88,7 +89,8 @@ export class RepositorioTurma {
         const t = this.findById(turmaId);
         if (t) {
             if (!this.hasAluno(turmaId, aluno.cpf)) {
-                t.alunos.push(aluno);
+                const clone = aluno.clone();
+                t.alunos.push(clone);
                 return true;
             }
         }
@@ -128,7 +130,8 @@ export class RepositorioTurma {
         const t = this.findById(turmaId);
         if (t) {
             if (!this.hasRoteiro(turmaId, roteiro.id)) {
-                t.roteiros.push(roteiro);
+                const clone = roteiro.clone();
+                t.roteiros.push(clone);
                 return true;
             }
         }
@@ -147,7 +150,10 @@ export class RepositorioTurma {
 
     public cadastrar(turma: Turma): boolean {
         if(!this.findById(turma.id)) {
-            this._turmas.push(turma);
+            console.log(turma);
+            const clone = turma.clone();
+            this._turmas.push(clone);
+            console.log(this._turmas);
             return true;
         }
         return false;
@@ -156,7 +162,8 @@ export class RepositorioTurma {
     public atualizar(turma: Turma): boolean {
         const t = this.findById(turma.id);
         if (t) {
-            t.copyFrom(turma);
+            const clone = turma.clone();
+            t.copyFrom(clone);
             return true;
         }
         return false;
