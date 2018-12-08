@@ -50,6 +50,35 @@ export class Matricula {
         this._respostasAluno = value;
     }
 
+    private cloneMapAvaliacao(from: Map<string, Avaliacao>): Map<string, Avaliacao> {
+        const to: Map<string, Avaliacao> = new Map<string, Avaliacao>();
+        for (const key in from) {
+            to[key] = from[key];
+        }
+        return to;
+    }
+
+    private cloneMapRespostasAluno(from: Map<string, RespostaRoteiro>): Map<string, RespostaRoteiro> {
+        const to: Map<string, RespostaRoteiro> = new Map<string, RespostaRoteiro>();
+        for (const key in from) {
+            to[key] = from[key];
+        }
+        return to;
+    }
+
+    public copyFrom(from: Matricula): void {
+        this._aluno = from.aluno;
+        this._turma = from.turma;
+        this.avaliacoes = this.cloneMapAvaliacao(from.avaliacoes);
+        this._respostasAluno = this.cloneMapRespostasAluno(from.respostasAluno);
+    }
+
+    public clone(): Matricula {
+        const m = new Matricula;
+        m.copyFrom(this);
+        return m;
+    }
+
     public toJSON() {
         return {
             aluno: this.aluno,

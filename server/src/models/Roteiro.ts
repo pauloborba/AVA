@@ -45,6 +45,35 @@ export class Roteiro {
     set respostasAlunos(value: Map<string, RespostaRoteiro>) {
         this._respostasAlunos = value;
     }
+    
+    private cloneMapQuestoes(from: Map<number, Questao>): Map<number, Questao> {
+        const to: Map<number, Questao> = new Map<number, Questao>();
+        for (const key in from) {
+            to[key] = from[key];
+        }
+        return to;
+    }
+    
+    private cloneMapRespostaRoteiro(from: Map<string, RespostaRoteiro>): Map<string, RespostaRoteiro> {
+        const to: Map<string, RespostaRoteiro> = new Map<string, RespostaRoteiro>();
+        for (const key in from) {
+            to[key] = from[key];
+        }
+        return to;
+    }
+
+    public copyFrom(from: Roteiro) {
+        this._id = from.id;
+        this._nome = from.nome;
+        this._questoes = this.cloneMapQuestoes(from.questoes);
+        this._respostasAlunos = this.cloneMapRespostaRoteiro(from.respostasAlunos)
+    }
+
+    public clone(): Roteiro {
+        const r = new Roteiro;
+        r.copyFrom(this);
+        return r;
+    }
 
     public toJSON() {
         return {
