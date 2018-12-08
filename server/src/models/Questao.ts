@@ -2,9 +2,9 @@ export class Questao {
     private _pergunta: string;
     private _respostaEsperada: string;
 
-    public constructor(pergunta: string, respostaEsperada: string) {
-        this.pergunta = pergunta;
-        this.respostaEsperada = respostaEsperada;
+    public constructor() {
+        this.pergunta = "";
+        this.respostaEsperada = "";
     }
 
     get pergunta(): string {

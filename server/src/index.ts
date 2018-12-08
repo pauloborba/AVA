@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
-import { getTurmas, postTurma, putTurma, getTurma, deleteTurma } from './controllers/turma';
+import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, getRoteiros, getTurmasAluno } from './controllers/turma';
 
 export const app = express();
 export const port = process.env.PORT || 3000;
@@ -21,7 +21,12 @@ app.put('/pessoa', putPessoa);
 app.delete('/pessoa/:cpf', deletePessoa);
 
 app.get('/turmas', getTurmas);
+app.get('/aluno/:cpf/turmas', getTurmasAluno);
 app.get('/turma/:id', getTurma);
+app.get('/turma/:turmaId/instrutores', getIntrutores);
+app.get('/turma/:turmaId/alunos', getAlunos);
+app.get('/turma/:turmaId/roteiros', getRoteiros);
+
 app.post('/turma', postTurma);
 app.put('/turma', putTurma);
 app.delete('/turma/:id', deleteTurma);

@@ -7,9 +7,6 @@ export class Roteiro {
     // cpf aluno => respostas do roteiro
     private _respostasAlunos: Map<string, RespostaRoteiro>;
 
-    // TODO add / rmv questoes
-    // TODO set respostasAlunos
-
     public constructor() {
         this._nome = "";
         this._questoes = [];

@@ -11,6 +11,7 @@ export class Turma {
         this._id = "";
         this._instrutores = [];
         this._alunos = [];
+        this._roteiros = [];
     }
 
     get id(): string {
@@ -50,6 +51,7 @@ export class Turma {
         this.id = from.id;
         this.instrutores = from.instrutores.slice();
         this.alunos = from.alunos.slice();
+        this.roteiros = from.roteiros.slice();
     }
 
     public toJSON() {
@@ -57,6 +59,7 @@ export class Turma {
             id: this.id,
             instrutores: this.instrutores,
             alunos: this.alunos,
+            roteiros: this.roteiros,
         };
     }
 }
