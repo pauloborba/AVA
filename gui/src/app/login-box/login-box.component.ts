@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PessoaService} from '../shared/pessoa.service'
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login-box',
@@ -14,7 +14,6 @@ export class LoginBoxComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private pessoaService: PessoaService) { 
-    this.pessoaService = pessoaService;
   }
 
 
@@ -37,7 +36,7 @@ export class LoginBoxComponent implements OnInit {
         }
       )
       .catch(
-        reason => console.log("oa deu erro")
+        reason => console.log("oa deu ruim")
       )
       return false;
   }
