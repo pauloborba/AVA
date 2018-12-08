@@ -7,6 +7,9 @@ const repositorio = new RepositorioMatricula;
 
 const sendJSON = (res: Response, body: any) => res.status(200).header('Content-Type', 'application/json').send(body);
 
+
+export const getMatriculas = (req: Request, res: Response) => sendJSON(res, JSON.stringify(repositorio.matricula));
+
 export const getAvaliacoes = (req: Request, res: Response) => {
     const avaliacoes = repositorio.getAvaliacoes(req.params.cpf, req.params.turmaId);
     sendJSON(res, JSON.stringify(avaliacoes));

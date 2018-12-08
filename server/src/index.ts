@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
 import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, getRoteiros, getTurmasAluno, postInstrutor, postAluno, postRoteiro, deleteInstrutor, deleteAluno, deleteRoteiro, hasAluno, hasInstrutor, hasRoteiro } from './controllers/turma';
-import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula } from './controllers/matricula';
+import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula, getMatriculas } from './controllers/matricula';
 
 export const app = express();
 export const port = process.env.PORT || 3000;
@@ -46,6 +46,7 @@ app.delete('/turma/:turmaId/aluno/:cpf', deleteAluno);
 app.delete('/turma/:turmaId/roteiro/:roteiroId', deleteRoteiro);
 
 // Matricula --------------------------------------------------------------
+app.get('/matriculas', getMatriculas);
 app.get('/matricula/aluno/:cpf/turma/:turmaId/avaliacoes', getAvaliacoes);
 app.get('/matricula/aluno/:cpf/turma/:turmaId/respostasaluno', getRespostasAluno);
 app.get('/matricula/aluno/:cpf/turma/:turmaId/roteiro/:roteiroId/avaliacao', getAvaliacao);

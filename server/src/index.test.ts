@@ -15,7 +15,46 @@ describe('O servidor', () => {
     let serverInstance: http.Server;
 
     beforeAll(() => serverInstance = server);
+    
+    it('cadastra pessoa', () => {
+        const options = {
+            uri: base_url + '/pessoa',
+            body: new Pessoa,
+            json: true,
+        };
+        options.body.cpf ="123";
+        options.body.nome = "guila";
+        return request.post(options)
+        .then((body) => expect(body).toEqual({"success": "A pessoa foi cadastrada com sucesso"}))
+        .catch((error) => expect(error).toBeNull());
+    });
+    it('cTURMA', () => {
+        const options = {
+            uri: base_url + '/turma',
+            body: new Turma,
+            json: true,
+        };
+        options.body.id = "if688";
+        const a = new Pessoa;
+        a.cpf = "123";
+        a.nome = "guila";
+        options.body.alunos = [a,a,a,a];
+        return request.post(options)
+        .then((body) => expect(body).toEqual({"success": "A pessoa foi cadastrada com sucesso"}))
+        .catch((error) => expect(error).toBeNull());
+    });
+    
+    it('RMMMMMMMM', () => {
+        const options = {
+            uri: base_url + '/aluno/12/turmas'
+        };
+        return request.get(options)
+        .then((body) => expect(body).toEqual([]))
+        .catch((error) => expect(error).toBeNull());
+    });
 
+
+    /*
     it('cadastra pessoa', () => {
         const options = {
             method: 'POST',
@@ -56,7 +95,6 @@ describe('O servidor', () => {
         .then((body) => expect(body).toEqual([]))
         .catch((error) => expect(error).toBeNull());
     });
-    /*
         
         
         it('remove', () => {

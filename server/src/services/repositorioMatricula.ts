@@ -4,15 +4,18 @@ import { RespostaRoteiro } from "../models/RespostaRoteiro";
 import { QuestaoRespondida } from "../models/QuestaoRespondida";
 
 export class RepositorioMatricula {
-    private matricula: Matricula[];
+    private _matricula: Matricula[];
 
     public constructor() {
-        this.matricula = [];
+        this._matricula = [];
     }
 
-    public cadastrar(matricula: Matricula): boolean {
-        if (!this.findByAlunoTurma(matricula.aluno.cpf, matricula.turma.id)) {
-            this.matricula.push(matricula);
+    get matricula(): Matricula[] {
+        return this._matricula;
+    }
+    public cadastrar(_matricula: Matricula): boolean {
+        if (!this.findByAlunoTurma(_matricula.aluno.cpf, _matricula.turma.id)) {
+            this._matricula.push(_matricula);
             return true;
         }
         return false;
@@ -21,8 +24,8 @@ export class RepositorioMatricula {
     public remover(cpfAluno: string, turmaId: string): boolean {
         const m = this.findByAlunoTurma(cpfAluno, turmaId);
         if (m) {
-            var i: number = this.matricula.findIndex(m => m.aluno.cpf === cpfAluno && m.turma.id === turmaId);
-            this.matricula.splice(i, 1);
+            var i: number = this._matricula.findIndex(m => m.aluno.cpf === cpfAluno && m.turma.id === turmaId);
+            this._matricula.splice(i, 1);
             return true;
         }
         return false;
@@ -75,6 +78,6 @@ export class RepositorioMatricula {
     }
 
     private findByAlunoTurma(cpfAluno: string, turmaId: string): Matricula | undefined {
-        return this.matricula.find(value => value.aluno.cpf === cpfAluno && value.turma.id === turmaId);
+        return this._matricula.find(value => value.aluno.cpf === cpfAluno && value.turma.id === turmaId);
     }
 }
