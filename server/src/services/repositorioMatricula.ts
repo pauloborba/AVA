@@ -13,9 +13,10 @@ export class RepositorioMatricula {
     get matricula(): Matricula[] {
         return this._matricula;
     }
-    public cadastrar(_matricula: Matricula): boolean {
-        if (!this.findByAlunoTurma(_matricula.aluno.cpf, _matricula.turma.id)) {
-            this._matricula.push(_matricula);
+    public cadastrar(matricula: Matricula): boolean {
+        if (!this.findByAlunoTurma(matricula.aluno.cpf, matricula.turma.id)) {
+            const clone = matricula.clone();
+            this._matricula.push(clone);
             return true;
         }
         return false;
@@ -70,7 +71,8 @@ export class RepositorioMatricula {
         if (m) {
             const ra = m.respostasAluno[roteiroId];
             if (ra) {
-                ra.questoesRespondidas[noQuestao] = questaoRespondida;
+                const clone = questaoRespondida.clone();
+                ra.questoesRespondidas[noQuestao] = clone;
                 return true;
             }
         }
