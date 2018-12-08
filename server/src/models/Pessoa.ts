@@ -2,11 +2,13 @@ export class Pessoa {
     private _cpf: string;
     private _nome: string;
     private _email: string;
+    private _senha: string;
 
     public constructor() {
         this._cpf = "";
         this._nome = "";
         this._email = "";
+        this._senha = "";
     }
 
     get cpf(): string {
@@ -33,11 +35,20 @@ export class Pessoa {
         this._email = value;
     }
 
+    get senha(): string {
+        return this._senha;
+    }
+
+    set senha(value: string) {
+        this._senha = value;
+    }
+
     // Creates a copy to preserve type safety
     public copyFrom(from: Pessoa): void {
         this.cpf = from.cpf;
         this.nome = from.nome;
         this.email = from.email;
+        this.senha = from.senha;
     }
 
     public toJSON() {
@@ -45,6 +56,7 @@ export class Pessoa {
             cpf: this.cpf,
             nome: this.nome,
             email: this.email,
+            senha: this.senha,
         };
     }
 }
