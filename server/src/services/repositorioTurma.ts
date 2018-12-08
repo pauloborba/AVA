@@ -150,10 +150,8 @@ export class RepositorioTurma {
 
     public cadastrar(turma: Turma): boolean {
         if(!this.findById(turma.id)) {
-            console.log(turma);
             const clone = turma.clone();
             this._turmas.push(clone);
-            console.log(this._turmas);
             return true;
         }
         return false;

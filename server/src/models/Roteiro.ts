@@ -4,6 +4,7 @@ import { RespostaRoteiro } from "./RespostaRoteiro";
 export class Roteiro {
     private _id: string;
     private _nome: string;
+    private _noQuestoes: number;
     private _questoes: Map<number, Questao>;
     // cpf aluno => respostas do roteiro
     private _respostasAlunos: Map<string, RespostaRoteiro>;
@@ -11,6 +12,7 @@ export class Roteiro {
     public constructor() {
         this._id = "";
         this._nome = "";
+        this._noQuestoes = 0;
         this._questoes = new Map<number, Questao>();
         this._respostasAlunos = new Map<string, RespostaRoteiro>();
     }
@@ -20,6 +22,14 @@ export class Roteiro {
 
     set id(value: string) {
         this._id = value;
+    }
+
+    get noQuestoes() {
+        return this._noQuestoes;
+    }
+
+    set noQuestoes(value: number) {
+        this._noQuestoes = value;
     }
 
     get nome(): string {
@@ -65,6 +75,7 @@ export class Roteiro {
     public copyFrom(from: Roteiro) {
         this._id = from.id;
         this._nome = from.nome;
+        this._noQuestoes = from.noQuestoes;
         this._questoes = this.cloneMapQuestoes(from.questoes);
         this._respostasAlunos = this.cloneMapRespostaRoteiro(from.respostasAlunos)
     }
@@ -79,6 +90,7 @@ export class Roteiro {
         return {
             id: this.id,
             nome: this.nome,
+            noQuestoes: this.noQuestoes,
             questoes: this.questoes,
             respostasAlunos: this.respostasAlunos,
         };

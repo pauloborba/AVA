@@ -23,6 +23,17 @@ export class Questao {
         this._respostaEsperada = value;
     }
 
+    public copyFrom(from: Questao) {
+        this._pergunta = from.pergunta;
+        this._respostaEsperada = from.respostaEsperada;
+    }
+
+    public clone(): Questao {
+        const q = new Questao;
+        q.copyFrom(this);
+        return q;
+    }
+
     public toJSON() {
         return {
             pergunta: this.pergunta,
