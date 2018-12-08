@@ -113,10 +113,10 @@ export class RepositorioTurma {
         return null;
     }
 
-    public hasRoteiro(turmaId: string, nome: string): boolean {
+    public hasRoteiro(turmaId: string, roteiroId: string): boolean {
         const rs = this.getRoteiros(turmaId);
         if (rs) {
-            const r = this.findByRoteiroName(rs, nome);
+            const r = this.findByRoteiroName(rs, roteiroId);
             if (r) {
                 return true;
             }
@@ -127,7 +127,7 @@ export class RepositorioTurma {
     public postRoteiro(turmaId: string, roteiro: Roteiro): boolean {
         const t = this.findById(turmaId);
         if (t) {
-            if (!this.hasRoteiro(turmaId, roteiro.nome)) {
+            if (!this.hasRoteiro(turmaId, roteiro.id)) {
                 t.roteiros.push(roteiro);
                 return true;
             }
@@ -135,10 +135,10 @@ export class RepositorioTurma {
         return false;
     }
 
-    public removeRoteiro(turmaId:string, nome): boolean {
-        if (this.hasRoteiro(turmaId, nome)) {
+    public removeRoteiro(turmaId:string, roteiroId: string): boolean {
+        if (this.hasRoteiro(turmaId, roteiroId)) {
             const t = this.findById(turmaId);
-            var i: number = t.roteiros.findIndex(p => p.nome === nome);
+            var i: number = t.roteiros.findIndex(r => r.id === roteiroId);
             t.roteiros.splice(i, 1);
             return true;
         }
@@ -180,7 +180,7 @@ export class RepositorioTurma {
         return arr.find(value => value.cpf === cpf);
     }
 
-    private findByRoteiroName(arr: Roteiro[], nome: string): Roteiro | undefined {
-        return arr.find(value => value.nome === nome);
+    private findByRoteiroName(arr: Roteiro[], id: string): Roteiro | undefined {
+        return arr.find(value => value.id === id);
     }
 }

@@ -14,7 +14,7 @@ const sendJSON = (res: Response, body: any) => res.status(200).header('Content-T
 export const getTurmas = (req: Request, res: Response) => sendJSON(res, JSON.stringify(repositorio.turmas));
 
 export const getTurma = (req: Request, res: Response) => {
-    const turma = repositorio.getTurma(req.params.id as string);
+    const turma = repositorio.getTurma(req.params.turmaId as string);
     sendJSON(res, JSON.stringify(turma));
 };
 
@@ -38,6 +38,20 @@ export const getRoteiros = (req: Request, res: Response) => {
     sendJSON(res, JSON.stringify(roteiros));
 };
 
+export const hasInstrutor = (req: Request, res: Response) => {
+    const has = repositorio.hasInstrutor(req.params.turmaId, req.params.cpf);
+    sendJSON(res, JSON.stringify(has));
+};
+
+export const hasAluno = (req: Request, res: Response) => {
+    const has = repositorio.hasAluno(req.params.turmaId, req.params.cpf);
+    sendJSON(res, JSON.stringify(has));
+};
+
+export const hasRoteiro = (req: Request, res: Response) => {
+    const has = repositorio.hasRoteiro(req.params.turmaId, req.params.roteiroId);
+    sendJSON(res, JSON.stringify(has));
+};
 
 // Posts -----------------------------------------------------------------------------------
 
@@ -109,10 +123,11 @@ export const putTurma = (req: Request, res: Response) => {
     }
 };
 
+
 // Delete ---------------------------------------------------------------------------
 
 export const deleteTurma = (req: Request, res: Response) => {
-    const bool = repositorio.remover(req.params.id);
+    const bool = repositorio.remover(req.params.turmaId);
     if (bool) {
         sendJSON(res, {
             'success': 'A turma foi removida com sucesso'
@@ -124,13 +139,42 @@ export const deleteTurma = (req: Request, res: Response) => {
     }
 };
 
+export const deleteInstrutor = (req: Request, res: Response) => {
+    const bool = repositorio.removeInstrutor(req.params.turmaId, req.params.cpf);
+    if (bool) {
+        sendJSON(res, {
+            'success': 'O instrutor foi removido com sucesso'
+        });
+    } else {
+        res.status(400).send({
+            'failure': 'O instrutor não pode ser removido'
+        });
+    }
+};
 
+export const deleteAluno = (req: Request, res: Response) => {
+    const bool = repositorio.removeAluno(req.params.turmaId, req.params.cpf);
+    if (bool) {
+        sendJSON(res, {
+            'success': 'O aluno foi removido com sucesso'
+        });
+    } else {
+        res.status(400).send({
+            'failure': 'O aluno não pode ser removido'
+        });
+    }
+};
 
-//hasInstrutor
-//hasAluno
-//hasRoteiro
+export const deleteRoteiro = (req: Request, res: Response) => {
+    const bool = repositorio.removeRoteiro(req.params.turmaId, req.params.roteiroId);
+    if (bool) {
+        sendJSON(res, {
+            'success': 'O roteiro foi removido com sucesso'
+        });
+    } else {
+        res.status(400).send({
+            'failure': 'O roteiro não pode ser removido'
+        });
+    }
+};
 
-
-//removeInstrutor
-//removeAluno
-//removeRoteiro
