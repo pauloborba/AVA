@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginBoxComponent } from './login-box/login-box.component';
 import { PessoaService } from './shared/pessoa.service';
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
-import { CadastroTurmaComponent } from './src/app/cadastro-turma/cadastro-turma.component';
+import { CadastroTurmaComponent } from './cadastro-turma/cadastro-turma.component';
 
 @NgModule({
   declarations: [
