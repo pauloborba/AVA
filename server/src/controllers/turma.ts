@@ -14,7 +14,7 @@ const sendJSON = (res: Response, body: any) => res.status(200).header('Content-T
 export const getTurmas = (req: Request, res: Response) => sendJSON(res, JSON.stringify(repositorio.turmas));
 
 export const getTurma = (req: Request, res: Response) => {
-    const turma = repositorio.getTurma(req.params.turmaId as string);
+    const turma = repositorio.getTurma(req.params.turmaId);
     sendJSON(res, JSON.stringify(turma));
 };
 
@@ -24,7 +24,7 @@ export const getTurmasAluno = (req: Request, res: Response) => {
 };
 
 export const getIntrutores = (req: Request, res: Response) => {
-    const instrutores = repositorio.getInstrutores(req.params.turmaId as string);
+    const instrutores = repositorio.getInstrutores(req.params.turmaId);
     sendJSON(res, JSON.stringify(instrutores));
 };
 
@@ -56,7 +56,7 @@ export const hasRoteiro = (req: Request, res: Response) => {
 // Posts -----------------------------------------------------------------------------------
 
 export const postTurma = (req: Request, res: Response) => {
-    const bool = repositorio.cadastrar(req.body as Turma);
+    const bool = repositorio.cadastrar(Turma.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A turma foi cadastrada com sucesso'
@@ -69,7 +69,7 @@ export const postTurma = (req: Request, res: Response) => {
 };
 
 export const postInstrutor = (req: Request, res: Response) => {
-    const bool = repositorio.postInstrutor(req.params.turmaId, req.body as Pessoa);
+    const bool = repositorio.postInstrutor(req.params.turmaId, Pessoa.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'O instrutor foi cadastrado com sucesso'
@@ -82,7 +82,7 @@ export const postInstrutor = (req: Request, res: Response) => {
 };
 
 export const postAluno = (req: Request, res: Response) => {
-    const bool = repositorio.postAluno(req.params.turmaId, req.body as Pessoa);
+    const bool = repositorio.postAluno(req.params.turmaId, Pessoa.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'O aluno foi cadastrado com sucesso'
@@ -95,7 +95,7 @@ export const postAluno = (req: Request, res: Response) => {
 };
 
 export const postRoteiro = (req: Request, res: Response) => {
-    const bool = repositorio.postRoteiro(req.params.turmaId, req.body as Roteiro);
+    const bool = repositorio.postRoteiro(req.params.turmaId, Roteiro.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'O roteiro foi cadastrado com sucesso'
@@ -111,7 +111,7 @@ export const postRoteiro = (req: Request, res: Response) => {
 // Puts -----------------------------------------------------------------------------------
 
 export const putTurma = (req: Request, res: Response) => {
-    const bool = repositorio.atualizar(req.body as Turma);
+    const bool = repositorio.atualizar(Turma.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A turma foi atualizada com sucesso'
