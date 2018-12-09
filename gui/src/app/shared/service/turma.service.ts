@@ -64,12 +64,14 @@ export class TurmaService {
        .toPromise()
        .then(value => value.json());
   }
+
   // hasAluno
   public hasAluno(turmaId: string, cpf: string): Promise<Boolean> {
     return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/aluno/' + cpf, TurmaService.options)
        .toPromise()
        .then(value => value.json());
   }
+
   // hasRoteiro
   public hasRoteiro(turmaId: string, roteiroId: string): Promise<Boolean> {
     return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/roteiro/' + roteiroId, TurmaService.options)
@@ -103,12 +105,40 @@ export class TurmaService {
     return this.http.post(TurmaService.baseUrl + '/roteiro', JSON.stringify(r), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
-}
+  }
   
   // putTurma
+  public updatePessoa(t: Turma): Promise<Boolean> {
+    return this.http.put(TurmaService.baseUrl + '/turma', JSON.stringify(t), TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
 
   // deleteTurma
+  public deletePessoa(turmaId: string): Promise<Boolean> {
+    return this.http.delete(TurmaService.baseUrl + '/turma/' + turmaId, TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
+
   // deleteInstrutor
+  public deleteInstrutor(turmaId: string, cpf: string): Promise<Boolean> {
+    return this.http.delete(TurmaService.baseUrl + '/turma/' + turmaId + '/instrutor/' + cpf, TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
+
   // delete aluno
+  public deleteAluno(turmaId: string, cpf: string): Promise<Boolean> {
+    return this.http.delete(TurmaService.baseUrl + '/turma/' + turmaId + '/aluno/' + cpf, TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
+
   // delete Roteiro
+  public deleteRoteiro(turmaId: string, roteiroId: string): Promise<Boolean> {
+    return this.http.delete(TurmaService.baseUrl + '/turma/' + turmaId + '/roteiro/' + roteiroId, TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
 }

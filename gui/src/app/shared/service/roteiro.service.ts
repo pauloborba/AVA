@@ -69,6 +69,7 @@ export class RoteiroService {
       .toPromise()
       .then(value => value.json().success ? true : false);
   }
+  
   // deleteQuestao
   public deleteQuestao(roteiroId: string, index: string): Promise<Boolean> {
     return this.http.delete(RoteiroService.baseUrl + '/roteiro/' + roteiroId + '/index/' + index, RoteiroService.options)
