@@ -14,6 +14,11 @@ export const getRoteiro = (req: Request, res: Response) => {
     sendJSON(res, JSON.stringify(roteiro));
 };
 
+export const getRoteirosDono = (req: Request, res: Response) => {
+    const roteiros = repositorio.getRoteirosDono(req.params.donoCpf);
+    sendJSON(res, JSON.stringify(roteiros));
+};
+
 export const getNoQuestoes = (req: Request, res: Response) => {
     const noQuestoes = repositorio.getNoQuestoes(req.params.roteiroId);
     sendJSON(res, JSON.stringify(noQuestoes));

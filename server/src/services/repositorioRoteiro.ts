@@ -4,6 +4,10 @@ import { Questao } from "../models/Questao";
 export class RepositorioRoteiro {
     private _roteiros: Roteiro[];
 
+    public constructor() {
+        this._roteiros = [];
+    }
+
     get roteiros(): Roteiro[] {
         return this._roteiros;
     }
@@ -14,6 +18,16 @@ export class RepositorioRoteiro {
             return r;
         }
         return null;
+    }
+
+    public getRoteirosDono(donoCpf: string): Roteiro[] {
+        const r: Roteiro[] = [];
+        this._roteiros.forEach(e => {
+            if (e.donoCpf === donoCpf) {
+                r.push(e);
+            }
+        });
+        return r;
     }
 
     public getNoQuestoes(roteiroId: string): number {

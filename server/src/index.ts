@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser';
 import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
 import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, postInstrutor, postAluno, postRoteiroTurma, deleteInstrutor, deleteAluno, hasAluno, hasInstrutor, hasRoteiro, deleteRoteiroTurma, getRoteirosTurma, getTurmasPessoa } from './controllers/turma';
 import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula, getMatriculas } from './controllers/matricula';
-import { getRoteiro, getNoQuestoes, getQuestoes, postRoteiro, postQuestao, putRoteiro, deleteQuestao, deleteRoteiro, getRoteiros } from './controllers/roteiro';
+import { getRoteiro, getNoQuestoes, getQuestoes, postRoteiro, postQuestao, putRoteiro, deleteQuestao, deleteRoteiro, getRoteiros, getRoteirosDono } from './controllers/roteiro';
 
 export const app = express();
 export const port = process.env.PORT || 3000;
@@ -61,6 +61,7 @@ app.delete('/matricula/aluno/:cpf/turma/:turmaId', deleteMatricula);
 // Roteiro --------------------------------------------------------------
 app.get('/roteiros', getRoteiros);
 app.get('/roteiro/:roteiroId', getRoteiro);
+app.get('/roteiros/dono/:donoCpf', getRoteirosDono);
 app.get('/roteiro/:roteiroId/noquestoes', getNoQuestoes);
 app.get('/roteiro/:roteiroId/questoes', getQuestoes);
 

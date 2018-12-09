@@ -2,6 +2,7 @@ import { Questao } from "./Questao";
 import { RespostaRoteiro } from "./RespostaRoteiro";
 
 export class Roteiro {
+    private _donoCpf: string;
     private _id: string;
     private _nome: string;
     private _noQuestoes: number;
@@ -10,12 +11,22 @@ export class Roteiro {
     private _respostasAlunos: Map<string, RespostaRoteiro>;
 
     public constructor() {
+        this._donoCpf = "";
         this._id = "";
         this._nome = "";
         this._noQuestoes = 0;
         this._questoes = new Map<number, Questao>();
         this._respostasAlunos = new Map<string, RespostaRoteiro>();
     }
+
+    get donoCpf(): string {
+        return this._donoCpf;
+    }
+
+    set donoCpf(value: string) {
+        this._donoCpf = value;
+    }
+
     get id(): string {
         return this._id;
     }
@@ -73,6 +84,7 @@ export class Roteiro {
     }
 
     public copyFrom(from: Roteiro) {
+        this._donoCpf = from.donoCpf;
         this._id = from.id;
         this._nome = from.nome;
         this._noQuestoes = from.noQuestoes;
@@ -88,6 +100,7 @@ export class Roteiro {
 
     public toJSON() {
         return {
+            donoCpf: this.donoCpf,
             id: this.id,
             nome: this.nome,
             noQuestoes: this.noQuestoes,
@@ -98,6 +111,7 @@ export class Roteiro {
 
     public static fromJSON(json: any): Roteiro {
         return Object.assign(new Roteiro, {
+            _donoCpf: json.donoCpf,
             _id: json.id,
             _nome: json.nome,
             _noQuestoes: json.noQuestoes,
