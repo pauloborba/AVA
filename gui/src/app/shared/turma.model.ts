@@ -1,7 +1,6 @@
 import { Pessoa } from "./pessoa.model"
 import { Roteiro } from "./roteiro.model";
 
-
 export class Turma {
     private _id: string;
     private _instrutores: Pessoa[];
@@ -47,12 +46,17 @@ export class Turma {
         this._roteiros = value;
     }
 
-    // Creates a copy to preserve type safety
     public copyFrom(from: Turma): void {
         this.id = from.id;
         this.instrutores = from.instrutores.slice();
         this.alunos = from.alunos.slice();
         this.roteiros = from.roteiros.slice();
+    }
+
+    public clone(): Turma {
+        const t = new Turma;
+        t.copyFrom(this);
+        return t;
     }
 
     public toJSON() {
