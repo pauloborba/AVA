@@ -63,6 +63,7 @@ export class RepositorioRoteiro {
     public cadastrar(roteiro: Roteiro): boolean {
         if (!this.findByRoteiroId(roteiro.id)) {
             const clone = roteiro.clone();
+            clone.id = "" + Math.random();
             this._roteiros.push(clone);
             return true;            
         }
