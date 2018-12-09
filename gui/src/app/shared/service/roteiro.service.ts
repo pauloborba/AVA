@@ -28,6 +28,12 @@ export class RoteiroService {
       .then(value => value.json());
   }
 
+  public getRoteirosDono(donoCpf: string): Promise<Roteiro[]> {
+    return this.http.get(RoteiroService.baseUrl + '/roteiros/dono/' + donoCpf, RoteiroService.options)
+      .toPromise()
+      .then(value => value.json());
+  }
+
   // Return Number of questions of a Roteiro, -1 if there's no question
   public getNoQuestoes(roteiroId: string): Promise<number> {
     return this.http.get(RoteiroService.baseUrl + '/roteiro/' + roteiroId + '/noquestoes', RoteiroService.options)

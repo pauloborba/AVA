@@ -4,6 +4,7 @@ import { MatriculaService } from '../shared/service/matricula.service';
 import { RoteiroService } from '../shared/service/roteiro.service';
 import { TurmaService } from '../shared/service/turma.service';
 import { Pessoa } from '../shared/pessoa.model';
+import { Roteiro } from '../shared/roteiro.model';
 
 @Component({
   selector: 'app-dummy-db',
@@ -25,11 +26,12 @@ export class DummyDbComponent implements OnInit {
     this.cadastrarPessoa('3', 'Pedro', 'phts@cin.ufpe.br', '3');
     this.cadastrarPessoa('4', 'Marcela', 'marcelinha@cin.ufpe.br', '4');
     this.cadastrarPessoa('5', 'Kusko', 'king@cin.ufpe.br', '5');
-    
+    this.cadastrarRoteiro('1', 'Requisitos');
+    this.getRoteirosDono('1');
   }
   
   cadastrarPessoa(cpf:string, nome:string, email:string, senha:string){
-    var pessoa = new Pessoa;
+    const pessoa = new Pessoa;
     pessoa.cpf = cpf;
     pessoa.nome = nome;
     pessoa.email = email;
@@ -43,5 +45,20 @@ export class DummyDbComponent implements OnInit {
     }
   }
 
+  getRoteirosDono(donoCpf: string) {
+    console.log(this.roteiroService.getRoteirosDono(donoCpf));
+  }
+
+  cadastrarRoteiro(donoCpf: string, nome:string) {
+    const roteiro = new Roteiro;
+    roteiro.donoCpf = donoCpf;
+    roteiro.nome = nome;
+    if (this.roteiroService.addRoteiro(roteiro)) {
+      console.log("Roteiro de " + nome  + " cadastrado");
+    }
+    else {
+      console.log("Roteiro de " + nome + " nao pode ser cadastrado");
+    }
+  }
 
 }
