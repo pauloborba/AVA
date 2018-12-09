@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PessoaService} from '../shared/pessoa.service'
+import {PessoaService} from '../shared/service/pessoa.service'
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,17 +17,17 @@ export class LoginBoxComponent implements OnInit {
   }
 
 
-  public redirect(CPF:String){
+  public redirect(cpf:String){
     this.router.navigate(['']);
   }
 
-  public checkExistent(CPF:String, senha:String) : Boolean{
+  public checkExistent(cpf:String, senha:String) : Boolean{
       // Make get to check if there is an aluno with that user
-    this.pessoaService.getPessoa(CPF)
+    this.pessoaService.getPessoa(cpf)
       .then(
         value => {
           if(value.senha == senha){
-            this.redirect(CPF);
+            this.redirect(cpf);
             return true;
           }
           else{

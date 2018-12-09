@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pessoa } from '../shared/pessoa.model';
-import {PessoaService} from '../shared/pessoa.service'
+import {PessoaService} from '../shared/service/pessoa.service'
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

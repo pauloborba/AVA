@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginBoxComponent } from './login-box/login-box.component';
-import { PessoaService } from './shared/pessoa.service';
+import { PessoaService } from './shared/service/pessoa.service';
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
 import { CadastroTurmaComponent } from './cadastro-turma/cadastro-turma.component';
 
