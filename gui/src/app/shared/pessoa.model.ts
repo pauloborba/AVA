@@ -43,12 +43,17 @@ export class Pessoa {
         this._senha = value;
     }
 
-    // Creates a copy to preserve type safety
     public copyFrom(from: Pessoa): void {
         this.cpf = from.cpf;
         this.nome = from.nome;
         this.email = from.email;
         this.senha = from.senha;
+    }
+
+    public clone(): Pessoa {
+        const p = new Pessoa;
+        p.copyFrom(this);
+        return p;
     }
 
     public toJSON() {
@@ -58,5 +63,14 @@ export class Pessoa {
             email: this.email,
             senha: this.senha,
         };
+    }
+
+    public static fromJSON(json: any): Pessoa {
+        return Object.assign(new Pessoa, {
+            _cpf: json.cpf,
+            _nome: json.nome,
+            _email: json.email,
+            _senha: json.senha,
+        });
     }
 }
