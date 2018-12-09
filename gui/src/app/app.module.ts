@@ -9,13 +9,15 @@ import { PessoaService } from './shared/service/pessoa.service';
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
 import { CadastroTurmaComponent } from './cadastro-turma/cadastro-turma.component';
 import { TurmaService } from './shared/service/turma.service';
+import { MostrarTurmasComponent } from './mostrar-turmas/mostrar-turmas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginBoxComponent,
     CadastroPessoaComponent,
-    CadastroTurmaComponent
+    CadastroTurmaComponent,
+    MostrarTurmasComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,10 @@ import { TurmaService } from './shared/service/turma.service';
       {
         path: 'cadastro-turma',
         component: CadastroTurmaComponent,
+      },
+      {
+        path: 'turmas',
+        component: MostrarTurmasComponent,
       }
     ]),
   ],
