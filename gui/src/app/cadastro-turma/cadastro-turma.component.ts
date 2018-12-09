@@ -32,7 +32,6 @@ export class CadastroTurmaComponent implements OnInit {
     this.pessoaService.getPessoa(this.cpfatual)
       .then(value => {
         turma.instrutores.push(value);
-        turma.alunos.push(value);
 
         if (this.turmaService.addTurma(turma)) {
           console.log("turma criada com sucesso");
