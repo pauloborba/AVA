@@ -63,4 +63,13 @@ export class Turma {
             roteiros: this.roteiros,
         };
     }
+
+    public static fromJSON(json: any): Turma {
+        return Object.assign(new Turma, {
+            _id: json.id,
+            _instrutores: json.instrutores,
+            _alunos: json.alunos,
+            _roteiros: json.roteiros,
+        });
+    }
 }

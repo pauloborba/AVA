@@ -10,6 +10,8 @@ import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.compo
 import { CadastroTurmaComponent } from './cadastro-turma/cadastro-turma.component';
 import { TurmaService } from './shared/service/turma.service';
 import { MostrarTurmasComponent } from './mostrar-turmas/mostrar-turmas.component';
+import { CadastroMatriculaComponent } from './cadastro-matricula/cadastro-matricula.component';
+import { MatriculaService } from './shared/service/matricula.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { MostrarTurmasComponent } from './mostrar-turmas/mostrar-turmas.componen
     LoginBoxComponent,
     CadastroPessoaComponent,
     CadastroTurmaComponent,
-    MostrarTurmasComponent
+    MostrarTurmasComponent,
+    CadastroMatriculaComponent
   ],
   imports: [
     BrowserModule,
@@ -39,12 +42,17 @@ import { MostrarTurmasComponent } from './mostrar-turmas/mostrar-turmas.componen
       {
         path: 'turmas',
         component: MostrarTurmasComponent,
+      },
+      {
+        path: 'cadastro-matricula',
+        component: CadastroMatriculaComponent,
       }
     ]),
   ],
   providers: [
     PessoaService,
-    TurmaService
+    TurmaService,
+    MatriculaService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,11 +1,12 @@
 <div>
   <table>
       <tr *ngFor="let t of turmas">
-          <td>{{t.nome}}</td>
+          <td>{{t.id}}</td>
           <button>Ir</button>
       </tr>
   </table>
 
-  <button (click)=redirect()> Criar Turma </button>
+  <button (click)='redirectCriarTurma()'> Criar Turma </button>
+  <button (click)='redirectEntrarTurma()'> Entrar em Turma </button>
     
 </div>
