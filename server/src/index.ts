@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
-import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, getTurmasAluno, postInstrutor, postAluno, postRoteiroTurma, deleteInstrutor, deleteAluno, hasAluno, hasInstrutor, hasRoteiro, deleteRoteiroTurma, getRoteirosTurma } from './controllers/turma';
+import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, postInstrutor, postAluno, postRoteiroTurma, deleteInstrutor, deleteAluno, hasAluno, hasInstrutor, hasRoteiro, deleteRoteiroTurma, getRoteirosTurma, getTurmasPessoa } from './controllers/turma';
 import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula, getMatriculas } from './controllers/matricula';
 import { getRoteiro, getNoQuestoes, getQuestoes, postRoteiro, postQuestao, putRoteiro, deleteQuestao, deleteRoteiro, getRoteiros } from './controllers/roteiro';
 
@@ -26,7 +26,7 @@ app.delete('/pessoa/:cpf', deletePessoa);
 // Turma --------------------------------------------------------------
 app.get('/turmas', getTurmas);
 app.get('/turma/:turmaId', getTurma);
-app.get('/aluno/:cpf/turmas', getTurmasAluno);
+app.get('/pessoa/:cpf/turmas', getTurmasPessoa);
 app.get('/turma/:turmaId/instrutores', getIntrutores);
 app.get('/turma/:turmaId/alunos', getAlunos);
 app.get('/turma/:turmaId/roteiros', getRoteirosTurma);

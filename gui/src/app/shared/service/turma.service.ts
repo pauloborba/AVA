@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import { Turma } from '../turma.model';
 import { Pessoa } from '../pessoa.model';
+import { Roteiro } from '../roteiro.model';
 
 
 @Injectable()
@@ -30,15 +31,32 @@ export class TurmaService {
   }
 
   // Retorna todas as Turmas que um Aluno está cadastrado dado um cpf
-  public getTurmasAluno(cpf: string): Promise<Turma[]> {
-    return this.http.get(TurmaService.baseUrl + '/aluno/' + cpf + '/turmas', TurmaService.options)
+  public getTurmasPessoa(cpf: string): Promise<Turma[]> {
+    return this.http.get(TurmaService.baseUrl + '/pessoa/' + cpf + '/turmas', TurmaService.options)
        .toPromise()
        .then(value => value.json());
   }
 
   // getInstrutores
+  public getInstrutores(turmaId: string): Promise<Pessoa[]> {
+    return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/instrutores', TurmaService.options)
+       .toPromise()
+       .then(value => value.json());
+  }
+
   // getAlunos
+  public getAlunos(turmaId: string): Promise<Pessoa[]> {
+    return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/alunos', TurmaService.options)
+       .toPromise()
+       .then(value => value.json());
+  }
+
   // getRoteiros
+  public getRoteiros(turmaId: string): Promise<Roteiro[]> {
+    return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/roteiros', TurmaService.options)
+       .toPromise()
+       .then(value => value.json());
+  }
 
   // hasInstrutor
   public hasInstrutor(turmaId: string, cpf: string): Promise<Boolean> {
@@ -80,7 +98,12 @@ export class TurmaService {
       .then(value => value.json().success ? true : false);
   }
 
-  // posrtRoteiro
+  // postRoteiro
+  public addRoteiro(r: Roteiro): Promise<Boolean> {
+    return this.http.post(TurmaService.baseUrl + '/roteiro', JSON.stringify(r), TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+}
   
   // putTurma
 

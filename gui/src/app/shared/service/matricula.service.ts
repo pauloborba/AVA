@@ -13,7 +13,7 @@ export class MatriculaService {
 
   constructor(private http: Http) { }
 
-  // getMatriculas
+  // Retorna todas as matriculas cadastradas
   public getMatriculas(): Promise<Matricula[]> {
     return this.http.get(MatriculaService.baseUrl + '/matriculas', MatriculaService.options)
       .toPromise()
@@ -32,7 +32,7 @@ export class MatriculaService {
     return this.http.post(MatriculaService.baseUrl + '/matricula', JSON.stringify(m), MatriculaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
-}
+  }
 
   // deleteMatricula
 

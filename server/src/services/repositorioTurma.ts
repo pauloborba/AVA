@@ -21,8 +21,8 @@ export class RepositorioTurma {
         return null;
     }
 
-    public getTurmasAluno(cpf: string): Turma[] {
-        return this.turmas.filter(e => e.alunos.find(value => value.cpf === cpf));
+    public getTurmasPessoa(cpf: string): Turma[] {
+        return this.turmas.filter(e => [].concat(...e.alunos, ...e.instrutores).find(value => value.cpf === cpf));
     }
 
     public getInstrutores(turmaId: string): Pessoa[] {

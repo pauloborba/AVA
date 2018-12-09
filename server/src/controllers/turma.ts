@@ -18,8 +18,8 @@ export const getTurma = (req: Request, res: Response) => {
     sendJSON(res, JSON.stringify(turma));
 };
 
-export const getTurmasAluno = (req: Request, res: Response) => {
-    const turmas = repositorio.getTurmasAluno(req.params.cpf);
+export const getTurmasPessoa = (req: Request, res: Response) => {
+    const turmas = repositorio.getTurmasPessoa(req.params.cpf);
     sendJSON(res, JSON.stringify(turmas));
 };
 
