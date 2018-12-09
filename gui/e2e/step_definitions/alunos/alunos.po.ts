@@ -17,7 +17,7 @@ export class StudentsPage {
     return element.all(by.className('alunoRow'));
   }
 
-  public getAlunosCPFs() {
+  public getAlunoscpfs() {
     return element.all(by.className('cpfValue'));
   }
 
@@ -25,7 +25,7 @@ export class StudentsPage {
     return el.element(by.className('nomeValue')).getText();
   }
 
-  public getAlunoCPF(el) {
+  public getAlunocpf(el) {
     return el.element(by.className('cpfValue')).getText();
   }
 
@@ -33,7 +33,7 @@ export class StudentsPage {
     return element(by.id('nomeInput'));
   }
 
-  public getCPFInput() {
+  public getcpfInput() {
     return element(by.id('cpfInput'));
   }
 

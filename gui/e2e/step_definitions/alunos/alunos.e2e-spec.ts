@@ -16,21 +16,21 @@ defineSupportCode(({ Given, When, Then }) => {
     page.getAlunosLink().click();
   });
 
-  Given(/^I cannot see a student with CPF "(\d*)" in the students list$/, (cpf) => {
-    page.getAlunosCPFs()
+  Given(/^I cannot see a student with cpf "(\d*)" in the students list$/, (cpf) => {
+    page.getAlunoscpfs()
       .filter(element => element.getText().then(value => value === cpf))
       .then(value => expect(value.length).to.equal(0));
   });
 
-  When(/^I try to register the student "([^\"]*)" with CPF "(\d*)"$/, (name, cpf) => {
+  When(/^I try to register the student "([^\"]*)" with cpf "(\d*)"$/, (name, cpf) => {
     page.getNomeInput().sendKeys(name as string);
-    page.getCPFInput().sendKeys(cpf as string);
+    page.getcpfInput().sendKeys(cpf as string);
     page.getAdicionarButton().click();
   });
 
-  Then(/^I can see "([^\"]*)" with CPF "(\d*)" in the students list$/, (name, cpf) => {
+  Then(/^I can see "([^\"]*)" with cpf "(\d*)" in the students list$/, (name, cpf) => {
     page.getAlunosRows()
-      .filter(element => page.getAlunoNome(element).then(value => value === name) && page.getAlunoCPF(element).then(value => value === cpf))
+      .filter(element => page.getAlunoNome(element).then(value => value === name) && page.getAlunocpf(element).then(value => value === cpf))
       .then(value => expect(value.length).to.equal(1));
   });
 });

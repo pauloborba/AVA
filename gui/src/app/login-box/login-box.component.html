@@ -1,9 +1,9 @@
 <div>
   <form>
-    <input #CPF>
+    <input #cpf>
     <br/>
     <input #senha type="password"/>
     <br/>
-    <button id="loginButton" (click)="checkExistent(CPF.value, senha.value); senha.value=''">Logar! </button>
+    <button id="loginButton" (click)="checkExistent(cpf.value, senha.value); senha.value=''">Logar! </button>
   </form>
 </div>

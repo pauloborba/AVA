@@ -12,10 +12,10 @@ import { PessoaService } from '../shared/service/pessoa.service'
 })
 export class CadastroTurmaComponent implements OnInit {
 
-  cpfAtual: string;
+  cpfatual: string;
 
-  public redirect(CPF: String) {
-    this.router.navigate(['']);
+  public redirect(cpf: String) {
+    this.router.navigate(['/turmas'],{queryParams: {cpf: cpf}});
   }
 
   constructor(
@@ -23,20 +23,20 @@ export class CadastroTurmaComponent implements OnInit {
     private pessoaService: PessoaService,
     private route: ActivatedRoute,
     private router: Router) {
-    this.cpfAtual = "060"
   }
 
   cadastroNovaTurma(Id: string) {
     let turma = new Turma;
     turma.id = Id;
 
-    this.pessoaService.getPessoa(this.cpfAtual)
+    this.pessoaService.getPessoa(this.cpfatual)
       .then(value => {
         turma.instrutores.push(value);
         turma.alunos.push(value);
 
         if (this.turmaService.addTurma(turma)) {
           console.log("turma criada com sucesso");
+          this.redirect(this.cpfatual);
         }
         else {
           console.log("turma já existe");
@@ -45,6 +45,11 @@ export class CadastroTurmaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route
+        .queryParams
+        .subscribe(params => {
+            this.cpfatual = params['cpf'];
+        });
   }
 
 }

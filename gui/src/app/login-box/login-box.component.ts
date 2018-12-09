@@ -18,7 +18,7 @@ export class LoginBoxComponent implements OnInit {
 
 
   public redirect(cpf:String){
-    this.router.navigate(['']);
+    this.router.navigate(['/turmas'],{queryParams: {cpf: cpf}});
   }
 
   public checkExistent(cpf:String, senha:String) : Boolean{

@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CadastroPessoaComponent implements OnInit {
 
-  public redirect(CPF:String){
+  public redirect(cpf:String){
     this.router.navigate(['']);
   }
 
@@ -19,14 +19,14 @@ export class CadastroPessoaComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  cadastroNovoPessoa(CPF:string, Nome:string, Email:string, Senha:string){
+  cadastroNovoPessoa(cpf:string, Nome:string, Email:string, Senha:string){
     var pessoa = new Pessoa;
-    pessoa.cpf = CPF;
+    pessoa.cpf = cpf;
     pessoa.email = Email;
     pessoa.nome = Nome;
     pessoa.senha = Senha;
     if(this.alunoService.addPessoa(pessoa)){
-      this.redirect(CPF);
+      this.redirect(cpf);
     }
     else{
       console.log("oa deu ruim");

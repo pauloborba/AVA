@@ -1,9 +1,11 @@
 <div>
-  <table *ngIf="alunos && alunos.length > 0">
+  <table>
       <tr *ngFor="let t of turmas">
           <td>{{t.nome}}</td>
           <button>Ir</button>
       </tr>
   </table>
+
+  <button (click)=redirect()> Criar Turma </button>
     
 </div>

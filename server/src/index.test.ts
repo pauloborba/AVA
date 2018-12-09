@@ -117,7 +117,7 @@ describe('O servidor', () => {
             .then((body) => expect(body).toEqual([]))
             .catch((error) => expect(error).toBeNull());
         });
-    it('não cadastra pessoas com CPF duplicado', () => {
+    it('não cadastra pessoas com cpf duplicado', () => {
         const options = {
             method: 'POST',
             uri: base_url + '/pessoa',

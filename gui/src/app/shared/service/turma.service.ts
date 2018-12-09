@@ -25,8 +25,8 @@ private baseUrl = "http://localhost:3000";
       );
   }
 
-  public getTurmasAluno(CPF:string): Promise<Turma[]>{
-    return this.http.get(this.baseUrl + '/aluno/' + CPF + '/turmas')
+  public getTurmasAluno(cpf:string): Promise<Turma[]>{
+    return this.http.get(this.baseUrl + '/aluno/' + cpf + '/turmas')
        .toPromise()
        .then(value => value.json().success ? value.json(): null)
       .catch(reason => Promise.reject(reason));

@@ -10,20 +10,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MostrarTurmasComponent implements OnInit {
 
-  private CPFatual: string;
+  private cpfatual: string;
   private turmas: Turma[];
 
   constructor(
     private turmaService: TurmaService,
     private route: ActivatedRoute,
     private router: Router){
-      this.CPFatual = "060"
-     }
+    }
+
+  public redirect(){
+    this.router.navigate(['/cadastro-turma'],{queryParams: {cpf: this.cpfatual}});
+  }
 
 
   ngOnInit() {
-    this.turmaService.getTurmasAluno(this.CPFatual)
-      .then(value => this.turmas = value)
-      .catch(reason => alert(reason.json().failure || reason));
+    this.route
+        .queryParams
+        .subscribe(params => {
+            this.cpfatual = params['cpf'];
+        });
+
+    this.turmaService.getTurmasAluno(this.cpfatual)
+      .then(value => this.turmas = value);
   }
 }
