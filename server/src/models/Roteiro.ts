@@ -95,4 +95,14 @@ export class Roteiro {
             respostasAlunos: this.respostasAlunos,
         };
     }
+
+    public static fromJSON(json: any): Roteiro {
+        return Object.assign(new Roteiro, {
+            _id: json.id,
+            _nome: json.nome,
+            _noQuestoes: json.noQuestoes,
+            _questoes: json.questoes,
+            _respostasAlunos: json.respostasAlunos,
+        });
+    }
 }
