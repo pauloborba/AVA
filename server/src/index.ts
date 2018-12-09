@@ -1,9 +1,9 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
-import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, getRoteiros, getTurmasAluno, postInstrutor, postAluno, postRoteiro, deleteInstrutor, deleteAluno, deleteRoteiro, hasAluno, hasInstrutor, hasRoteiro } from './controllers/turma';
+import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, getTurmasAluno, postInstrutor, postAluno, postRoteiroTurma, deleteInstrutor, deleteAluno, hasAluno, hasInstrutor, hasRoteiro, deleteRoteiroTurma, getRoteirosTurma } from './controllers/turma';
 import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula, getMatriculas } from './controllers/matricula';
-import { getRoteiro, getNoQuestoes, getQuestoes, postQuestao, putRoteiro, deleteQuestao } from './controllers/roteiro';
+import { getRoteiro, getNoQuestoes, getQuestoes, postRoteiro, postQuestao, putRoteiro, deleteQuestao, deleteRoteiro, getRoteiros } from './controllers/roteiro';
 
 export const app = express();
 export const port = process.env.PORT || 3000;
@@ -29,7 +29,7 @@ app.get('/turma/:turmaId', getTurma);
 app.get('/aluno/:cpf/turmas', getTurmasAluno);
 app.get('/turma/:turmaId/instrutores', getIntrutores);
 app.get('/turma/:turmaId/alunos', getAlunos);
-app.get('/turma/:turmaId/roteiros', getRoteiros);
+app.get('/turma/:turmaId/roteiros', getRoteirosTurma);
 app.get('/turma/:turmaId/instrutor/:cpf', hasInstrutor);
 app.get('/turma/:turmaId/aluno/:cpf', hasAluno);
 app.get('/turma/:turmaId/roteiro/:roteiroId', hasRoteiro);
@@ -37,14 +37,14 @@ app.get('/turma/:turmaId/roteiro/:roteiroId', hasRoteiro);
 app.post('/turma', postTurma);
 app.post('/turma/:turmaId/instrutor', postInstrutor);
 app.post('/turma/:turmaId/aluno', postAluno);
-app.post('/turma/:turmaId/roteiro', postRoteiro);
+app.post('/turma/:turmaId/roteiro', postRoteiroTurma);
 
 app.put('/turma', putTurma);
 
 app.delete('/turma/:turmaId', deleteTurma);
 app.delete('/turma/:turmaId/instrutor/:cpf', deleteInstrutor);
 app.delete('/turma/:turmaId/aluno/:cpf', deleteAluno);
-app.delete('/turma/:turmaId/roteiro/:roteiroId', deleteRoteiro);
+app.delete('/turma/:turmaId/roteiro/:roteiroId', deleteRoteiroTurma);
 
 // Matricula --------------------------------------------------------------
 app.get('/matriculas', getMatriculas);
@@ -64,12 +64,12 @@ app.get('/roteiro/:roteiroId', getRoteiro);
 app.get('/roteiro/:roteiroId/noquestoes', getNoQuestoes);
 app.get('/roteiro/:roteiroId/questoes', getQuestoes);
 
-app.post('/roteiro/:roteiroId', postRoteiro);
+app.post('/roteiro', postRoteiro);
 app.post('/roteiro/:roteiroId/questao', postQuestao);
 
 app.put('/roteiro', putRoteiro);
 
-app.delete('/roteiro', deleteRoteiro);
+app.delete('/roteiro/:roteiroId', deleteRoteiro);
 app.delete('/roteiro/:roteiroId/index/:index', deleteQuestao);
 
 export const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));

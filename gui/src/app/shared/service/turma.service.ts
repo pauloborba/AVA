@@ -39,9 +39,25 @@ export class TurmaService {
   // getInstrutores
   // getAlunos
   // getRoteiros
+
   // hasInstrutor
+  public hasInstrutor(turmaId: string, cpf: string): Promise<Boolean> {
+    return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/instrutor/' + cpf, TurmaService.options)
+       .toPromise()
+       .then(value => value.json());
+  }
   // hasAluno
+  public hasAluno(turmaId: string, cpf: string): Promise<Boolean> {
+    return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/aluno/' + cpf, TurmaService.options)
+       .toPromise()
+       .then(value => value.json());
+  }
   // hasRoteiro
+  public hasRoteiro(turmaId: string, roteiroId: string): Promise<Boolean> {
+    return this.http.get(TurmaService.baseUrl + '/turma/' + turmaId + '/roteiro/' + roteiroId, TurmaService.options)
+       .toPromise()
+       .then(value => value.json());
+  }
 
   // Cadastra uma Turma
   public addTurma(t: Turma): Promise<Boolean> {

@@ -33,7 +33,7 @@ export const getAlunos = (req: Request, res: Response) => {
     sendJSON(res, JSON.stringify(alunos));
 };
 
-export const getRoteiros = (req: Request, res: Response) => {
+export const getRoteirosTurma = (req: Request, res: Response) => {
     const roteiros = repositorio.getRoteiros(req.params.turmaId);
     sendJSON(res, JSON.stringify(roteiros));
 };
@@ -94,7 +94,7 @@ export const postAluno = (req: Request, res: Response) => {
     }
 };
 
-export const postRoteiro = (req: Request, res: Response) => {
+export const postRoteiroTurma = (req: Request, res: Response) => {
     const bool = repositorio.postRoteiro(req.params.turmaId, Roteiro.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
@@ -165,7 +165,7 @@ export const deleteAluno = (req: Request, res: Response) => {
     }
 };
 
-export const deleteRoteiro = (req: Request, res: Response) => {
+export const deleteRoteiroTurma = (req: Request, res: Response) => {
     const bool = repositorio.removeRoteiro(req.params.turmaId, req.params.roteiroId);
     if (bool) {
         sendJSON(res, {
