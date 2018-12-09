@@ -14,7 +14,7 @@ export const getPessoa = (req: Request, res: Response) => {
 };
 
 export const postPessoa = (req: Request, res: Response) => {
-    const bool = repositorio.cadastrar(req.body as Pessoa);
+    const bool = repositorio.cadastrar(Pessoa.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A pessoa foi cadastrada com sucesso'
@@ -27,7 +27,7 @@ export const postPessoa = (req: Request, res: Response) => {
 };
 
 export const putPessoa = (req: Request, res: Response) => {
-    const bool = repositorio.atualizar(req.body as Pessoa);
+    const bool = repositorio.atualizar(Pessoa.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A pessoa foi atualizada com sucesso'

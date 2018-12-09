@@ -64,4 +64,13 @@ export class Pessoa {
             senha: this.senha,
         };
     }
+
+    public static fromJSON(json: any): Pessoa {
+        return Object.assign(new Pessoa, {
+            _cpf: json.cpf,
+            _nome: json.nome,
+            _email: json.email,
+            _senha: json.senha,
+        });
+    }
 }
