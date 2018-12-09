@@ -12,6 +12,8 @@ import { TurmaService } from './shared/service/turma.service';
 import { MostrarTurmasComponent } from './mostrar-turmas/mostrar-turmas.component';
 import { CadastroMatriculaComponent } from './cadastro-matricula/cadastro-matricula.component';
 import { MatriculaService } from './shared/service/matricula.service';
+import { TurmaHomeComponent } from './turma-home/turma-home.component';
+import { MostrarRoteirosComponent } from './mostrar-roteiros/mostrar-roteiros.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MatriculaService } from './shared/service/matricula.service';
     CadastroPessoaComponent,
     CadastroTurmaComponent,
     MostrarTurmasComponent,
-    CadastroMatriculaComponent
+    CadastroMatriculaComponent,
+    TurmaHomeComponent,
+    MostrarRoteirosComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,15 @@ import { MatriculaService } from './shared/service/matricula.service';
       {
         path: 'cadastro-matricula',
         component: CadastroMatriculaComponent,
+      }
+      ,
+      {
+        path: 'turma-home',
+        component: TurmaHomeComponent,
+      },
+      {
+        path: 'vizualizar-roteiros',
+        component: MostrarRoteirosComponent
       }
     ]),
   ],
