@@ -31,7 +31,7 @@ export const getQuestoesRespondidas = (req: Request, res: Response) => {
 };
 
 export const addQuestaoRespondida = (req: Request, res: Response) => {
-    const bool = repositorio.addQuestaoRespondida(req.params.cpf, req.params.turmaId, req.params.roteiroId, req.params.noQuestao, req.body as QuestaoRespondida);
+    const bool = repositorio.addQuestaoRespondida(req.params.cpf, req.params.turmaId, req.params.roteiroId, req.params.noQuestao, QuestaoRespondida.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A QuestaoRespondida foi cadastrada com sucesso'
@@ -44,7 +44,7 @@ export const addQuestaoRespondida = (req: Request, res: Response) => {
 };
 
 export const postMatricula = (req: Request, res: Response) => {
-    const bool = repositorio.cadastrar(req.body as Matricula);
+    const bool = repositorio.cadastrar(Matricula.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A matricula foi cadastrada com sucesso'

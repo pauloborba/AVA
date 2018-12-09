@@ -87,4 +87,14 @@ export class Matricula {
             respostasAluno: this.respostasAluno,
         };
     }
+
+    public static fromJSON(json: any): Matricula {
+        return Object.assign(new Matricula, {
+            _aluno: json.aluno,
+            _turma: json.turma,
+            _avaliacoes: json.avaliacoes,
+            _respostasAluno: json.respostasAluno,
+
+        });
+    }
 }

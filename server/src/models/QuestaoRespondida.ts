@@ -67,4 +67,13 @@ export class QuestaoRespondida {
         };
     }
 
+    public static fromJSON(json: any): QuestaoRespondida {
+        return Object.assign(new QuestaoRespondida, {
+            _pergunta: json.pergunta,
+            _resposta: json.resposta,
+            _status: json.status,
+            _tempo: json.tempo,
+        });
+    }
+
 }

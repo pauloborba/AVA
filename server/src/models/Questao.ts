@@ -40,4 +40,11 @@ export class Questao {
             respostaEsperada: this.respostaEsperada,
         };
     }
+
+    public static fromJSON(json: any): Questao {
+        return Object.assign(new Questao, {
+            _pergunta: json.pergunta,
+            _pespostaEsperada: json.respostaEsperada,
+        });
+    }
 }

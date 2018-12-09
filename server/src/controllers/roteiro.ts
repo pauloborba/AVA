@@ -26,7 +26,7 @@ export const getQuestoes = (req: Request, res: Response) => {
 
 
 export const postRoteiro = (req: Request, res: Response) => {
-    const bool = repositorio.cadastrar(req.body as Roteiro);
+    const bool = repositorio.cadastrar(Roteiro.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'O roteiro foi cadastrado com sucesso'
@@ -39,7 +39,7 @@ export const postRoteiro = (req: Request, res: Response) => {
 };
 
 export const postQuestao = (req: Request, res: Response) => {
-    const bool = repositorio.addQuestao(req.params.roteiroId, req.body as Questao);
+    const bool = repositorio.addQuestao(req.params.roteiroId, Questao.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'A questao foi cadastrada com sucesso'
@@ -52,7 +52,7 @@ export const postQuestao = (req: Request, res: Response) => {
 };
 
 export const putRoteiro = (req: Request, res: Response) => {
-    const bool = repositorio.atualizar(req.body as Roteiro);
+    const bool = repositorio.atualizar(Roteiro.fromJSON(req.body));
     if (bool) {
         sendJSON(res, {
             'success': 'O roteiro foi atualizado com sucesso'
