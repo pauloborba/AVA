@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import { Turma } from '../turma.model';
+import { Pessoa } from '../pessoa.model';
 
 
 @Injectable()
 export class TurmaService {
-  private static baseUrl = "http://localhost:3000";
+  private static baseUrl = 'http://localhost:3000';
   private static options = {
     headers: new Headers({
       'Content-Type' : 'application/json',
@@ -15,30 +16,24 @@ export class TurmaService {
   constructor(private http: Http) {}
 
   // Retorna todas as turmas cadastradas
-  public getTurmas(): Promise<Turma[]>{
-    return this.http.get(TurmaService.baseUrl + '/turmas')
+  public getTurmas(): Promise<Turma[]> {
+    return this.http.get(TurmaService.baseUrl + '/turmas', TurmaService.options)
       .toPromise()
       .then(value => value.json());
   }
 
   // Retorna uma Turma dado seu id
   public getTurma(id: String): Promise<Turma> {
-    return this.http.get(TurmaService.baseUrl + '/turma/' + id)
+    return this.http.get(TurmaService.baseUrl + '/turma/' + id, TurmaService.options)
       .toPromise()
-      .then(
-        value => value.json() 
-      )
-      .catch(
-        reason => Promise.reject(reason)
-      );
+      .then(value => value.json());
   }
 
   // Retorna todas as Turmas que um Aluno está cadastrado dado um cpf
-  public getTurmasAluno(cpf:string): Promise<Turma[]>{
-    return this.http.get(TurmaService.baseUrl + '/aluno/' + cpf + '/turmas')
+  public getTurmasAluno(cpf: string): Promise<Turma[]> {
+    return this.http.get(TurmaService.baseUrl + '/aluno/' + cpf + '/turmas', TurmaService.options)
        .toPromise()
-       .then(value => value.json())
-      .catch(reason => Promise.reject(reason));
+       .then(value => value.json());
   }
 
   // getInstrutores
@@ -49,15 +44,26 @@ export class TurmaService {
   // hasRoteiro
 
   // Cadastra uma Turma
-  public addTurma(t:Turma): Promise<Boolean>{
+  public addTurma(t: Turma): Promise<Boolean> {
     return this.http.post(TurmaService.baseUrl + '/turma', t.toJSON(), TurmaService.options)
       .toPromise()
-      .then(value => value.json().success ? true : false)
-      .catch(reason => Promise.reject(reason));
+      .then(value => value.json().success ? true : false);
   }
 
-  // postInstructor
-  // postAluno
+  // Cadastra um Instrutor na Turma com id roteiroId, retorna false se o instrutor já entiver cadastrado ou se a turma nao existir
+  public addInstrutor(roteiroId: string, i: Pessoa): Promise<Boolean> {
+    return this.http.post(TurmaService.baseUrl + '/turma/' + roteiroId + '/instrutor', JSON.stringify(i), TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
+
+  // Cadastra um Aluno na Turma com id roteiroId, retorna false se o aluno já esta cadastrado ou se a turma nao existir
+  public addAluno(roteiroId: string, a: Pessoa): Promise<Boolean> {
+    return this.http.post(TurmaService.baseUrl + '/turma/' + roteiroId + '/aluno', JSON.stringify(a), TurmaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
+
   // posrtRoteiro
   
   // putTurma

@@ -4,7 +4,7 @@ import { Matricula } from '../matricula.model';
 
 @Injectable()
 export class MatriculaService {
-  private static baseUrl = "http://localhost:3000";
+  private static baseUrl = 'http://localhost:3000';
   private static options = {
     headers: new Headers({
       'Content-Type' : 'application/json',
@@ -15,7 +15,7 @@ export class MatriculaService {
 
   // getMatriculas
   public getMatriculas(): Promise<Matricula[]> {
-    return this.http.get(MatriculaService.baseUrl + "/matriculas")
+    return this.http.get(MatriculaService.baseUrl + '/matriculas', MatriculaService.options)
       .toPromise()
       .then(value => value.json());
   }
@@ -28,7 +28,7 @@ export class MatriculaService {
   // addQuestaoRespondida
 
   // Cadastra matricula
-  public addMatricula(m: Matricula): Promise<Boolean>{
+  public addMatricula(m: Matricula): Promise<Boolean> {
     return this.http.post(MatriculaService.baseUrl + '/matricula', JSON.stringify(m), MatriculaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
