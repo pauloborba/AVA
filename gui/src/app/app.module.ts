@@ -17,6 +17,8 @@ import { MostrarRoteirosComponent } from './mostrar-roteiros/mostrar-roteiros.co
 import { CadastroRoteiroComponent } from './cadastro-roteiro/cadastro-roteiro.component';
 import { GerenciarTurmaComponent } from './gerenciar-turma/gerenciar-turma.component';
 import { RoteiroService } from './shared/service/roteiro.service';
+import { GerenciarRoteirosComponent } from './gerenciar-roteiros/gerenciar-roteiros.component';
+import { GerenciarEstatisticasComponent } from './gerenciar-estatisticas/gerenciar-estatisticas.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RoteiroService } from './shared/service/roteiro.service';
     TurmaHomeComponent,
     MostrarRoteirosComponent,
     CadastroRoteiroComponent,
-    GerenciarTurmaComponent
+    GerenciarTurmaComponent,
+    GerenciarRoteirosComponent,
+    GerenciarEstatisticasComponent
   ],
   imports: [
     BrowserModule,

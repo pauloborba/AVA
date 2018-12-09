@@ -1,14 +1,12 @@
 <div>
-  <!-- Se o foco estiver em "Gerenciar roteiros" -->
   <button (click)="setRender('Gerenciar')">Gerenciar Roteiros</button>
   <button (click)="setRender('Estatistica')">Estatisticas</button>
 
   <div *ngIf="this.renderAtual() == 'Gerenciar'">
-      <!-- Componente de gerenciar roteiros-->
+    <app-gerenciar-roteiros [cpfAtual]='this.cpfAtual' [turmaAtual]='this.turmaAtual'></app-gerenciar-roteiros>
   </div>
-  <!-- Se o foco estiver em "Ver estatísticas" -->
   <div *ngIf="this.renderAtual() == 'Estatistica'">
-      <!-- Componente de ver estatísticas-->
+      <app-gerenciar-estatisticas [cpfAtual]='this.cpfAtual' [turmaAtual]='this.turmaAtual'></app-gerenciar-estatisticas>
   </div>
 
 </div>
