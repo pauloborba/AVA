@@ -2,7 +2,7 @@
   <table>
       <tr *ngFor="let t of turmas">
           <td>{{t.id}}</td>
-          <button>Ir</button>
+          <button (click) = 'redirectAcessarTurma(t.id)'>Ir</button>
       </tr>
   </table>
 

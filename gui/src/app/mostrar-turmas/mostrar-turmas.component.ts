@@ -17,8 +17,12 @@ export class MostrarTurmasComponent implements OnInit {
     private turmaService: TurmaService,
     private route: ActivatedRoute,
     private router: Router){
-    }
+  }
 
+  public redirectAcessarTurma(turmaId:string){
+    this.router.navigate(['/turma-home'],{queryParams: {id:turmaId, cpf:this.cpfatual}});
+  }
+  
   public redirectCriarTurma(){
     this.router.navigate(['/cadastro-turma'],{queryParams: {cpf: this.cpfatual}});
   }
@@ -34,7 +38,7 @@ export class MostrarTurmasComponent implements OnInit {
         .subscribe(params => {
             this.cpfatual = params['cpf'];
         });
-    this.turmaService.getTurmasAluno(this.cpfatual)
+    this.turmaService.getTurmasPessoa(this.cpfatual)
       .then(value => {
         value.forEach(element => {
           console.log(element);

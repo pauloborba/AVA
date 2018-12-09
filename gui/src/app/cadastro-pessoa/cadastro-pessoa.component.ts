@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class CadastroPessoaComponent implements OnInit {
 
   public redirect(cpf:String){
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
   constructor(
