@@ -45,6 +45,19 @@ export class QuestaoRespondida {
         this._tempo = value;
     }
 
+    public copyFrom(from: QuestaoRespondida) {
+        this._pergunta = from.pergunta;
+        this._resposta = from.resposta;
+        this._status = from.status;
+        this._tempo = from.tempo;
+    }
+
+    public clone(): QuestaoRespondida {
+        const qr = new QuestaoRespondida;
+        qr.copyFrom(this);
+        return qr;
+    }
+
     public toJSON() {
         return {
             pergunta: this.pergunta,

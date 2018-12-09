@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import { Turma } from './turma.model';
+import { Turma } from '../turma.model';
 
 
 @Injectable()

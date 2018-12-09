@@ -2,25 +2,23 @@ import { QuestaoRespondida } from "./QuestaoRespondida";
 
 // Todas as respostas de um roteiro de um aluno
 export class RespostaRoteiro {
-    private _questoesRespondidas: QuestaoRespondida[];
-
-    // TODO add / rmv questaoRespondida
+    private _questoesRespondidas: Map<number, QuestaoRespondida>;
 
     public constructor() {
-        this._questoesRespondidas = [];
+        this._questoesRespondidas = new Map<number, QuestaoRespondida>();
     }
 
-    get questoesRespondidas(): QuestaoRespondida[] {
+    get questoesRespondidas(): Map<number, QuestaoRespondida> {
         return this._questoesRespondidas;
     }
 
-    set questoesRespondidas(value: QuestaoRespondida[]) {
+    set questoesRespondidas(value: Map<number, QuestaoRespondida>) {
         this._questoesRespondidas = value;
     }
 
     public toJSON() {
         return {
-            questaoRespondidas: this.questoesRespondidas,
+            questoesRespondidas: this.questoesRespondidas,
         };
     }
 }

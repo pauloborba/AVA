@@ -21,9 +21,8 @@ export class RepositorioPessoa {
 
     public cadastrar(pessoa: Pessoa): boolean {
         if (!this.findByCpf(pessoa.cpf)) {
-            const p = new Pessoa;
-            p.copyFrom(pessoa);
-            this._pessoas.push(p);
+            const clone = pessoa.clone();
+            this._pessoas.push(clone);
             return true;
         }
         return false;
@@ -32,7 +31,8 @@ export class RepositorioPessoa {
     public atualizar(pessoa: Pessoa): boolean {
         const p = this.findByCpf(pessoa.cpf);
         if (p) {
-            p.copyFrom(pessoa);
+            const clone = pessoa.clone();
+            p.copyFrom(clone);
             return true;
         }
         return false;

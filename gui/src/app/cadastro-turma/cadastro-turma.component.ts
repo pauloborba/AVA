@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TurmaService} from '../shared/turma.service';
+import {TurmaService} from '../shared/service/turma.service';
 import {Turma} from '../shared/turma.model'
 import { Router, ActivatedRoute } from '@angular/router';
 
