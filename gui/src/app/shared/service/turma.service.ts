@@ -50,16 +50,16 @@ export class TurmaService {
       .then(value => value.json().success ? true : false);
   }
 
-  // Cadastra um Instrutor na Turma com id roteiroId, retorna false se o instrutor já entiver cadastrado ou se a turma nao existir
-  public addInstrutor(roteiroId: string, i: Pessoa): Promise<Boolean> {
-    return this.http.post(TurmaService.baseUrl + '/turma/' + roteiroId + '/instrutor', JSON.stringify(i), TurmaService.options)
+  // Cadastra um Instrutor na Turma com id turmaId, retorna false se o instrutor já entiver cadastrado ou se a turma nao existir
+  public addInstrutor(turmaId: string, i: Pessoa): Promise<Boolean> {
+    return this.http.post(TurmaService.baseUrl + '/turma/' + turmaId + '/instrutor', JSON.stringify(i), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
   }
 
-  // Cadastra um Aluno na Turma com id roteiroId, retorna false se o aluno já esta cadastrado ou se a turma nao existir
-  public addAluno(roteiroId: string, a: Pessoa): Promise<Boolean> {
-    return this.http.post(TurmaService.baseUrl + '/turma/' + roteiroId + '/aluno', JSON.stringify(a), TurmaService.options)
+  // Cadastra um Aluno na Turma com id turmaId, retorna false se o aluno já esta cadastrado ou se a turma nao existir
+  public addAluno(turmaId: string, a: Pessoa): Promise<Boolean> {
+    return this.http.post(TurmaService.baseUrl + '/turma/' + turmaId + '/aluno', JSON.stringify(a), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
   }
