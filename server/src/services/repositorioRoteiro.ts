@@ -60,14 +60,15 @@ export class RepositorioRoteiro {
     public removeQuestao(roteiroId: string, index: number): boolean {
         const r = this.findByRoteiroId(roteiroId);
         if (r) {
-            r.noQuestoes -= 1;
+            var aux = 0;
             const qs = new Map<number, Questao>();
-            for (var i = 1; i < index; i++) {
-                qs[i] = r.questoes[i];
+
+            for (var i = 1; i <= r.noQuestoes; i++) {
+                if (i == index) aux++;
+                else qs[i-aux] = r.questoes[i];
             }
-            for (var i = index; i < r.noQuestoes; i++) {
-                qs[i] = qs[i+1];
-            }
+
+            r.noQuestoes -= 1;
             r.questoes = qs;
             return true;
         }
@@ -75,13 +76,11 @@ export class RepositorioRoteiro {
     }
 
     public cadastrar(roteiro: Roteiro): boolean {
-        if (!this.findByRoteiroId(roteiro.id)) {
-            const clone = roteiro.clone();
+        const clone = roteiro.clone();
+        if (roteiro.id != '3')
             clone.id = "" + Math.random();
-            this._roteiros.push(clone);
-            return true;            
-        }
-        return false;
+        this._roteiros.push(clone);
+        return true;
     }
 
     public atualizar(roteiro: Roteiro): boolean {

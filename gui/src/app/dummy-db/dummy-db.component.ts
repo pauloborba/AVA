@@ -5,6 +5,8 @@ import { RoteiroService } from '../shared/service/roteiro.service';
 import { TurmaService } from '../shared/service/turma.service';
 import { Pessoa } from '../shared/pessoa.model';
 import { Roteiro } from '../shared/roteiro.model';
+import { Turma } from '../shared/turma.model';
+import { Questao } from '../shared/questao.model';
 
 @Component({
   selector: 'app-dummy-db',
@@ -26,10 +28,28 @@ export class DummyDbComponent implements OnInit {
     this.cadastrarPessoa('3', 'Pedro', 'phts@cin.ufpe.br', '3');
     this.cadastrarPessoa('4', 'Marcela', 'marcelinha@cin.ufpe.br', '4');
     this.cadastrarPessoa('5', 'Kusko', 'king@cin.ufpe.br', '5');
-    this.cadastrarRoteiro('1', 'Requisitos');
-    this.getRoteirosDono('1');
+    this.cadastrarRoteiro('1', 'Requisitos', '');
+    this.cadastrarRoteiro('1', 'Gerencia de Requisitos', '');
+    this.cadastrarRoteiro('1', 'Projeto e Implementação', '3');
+    this.cadastrarRoteiro('1', 'Testes Testes Testes Testes', '');
+    this.cadastrarTurma('if686', '1');
+    this.addQuestao('3', 'Como que faz para ganhar muito dinheiro?', 'Tomando muito K');
+    this.addQuestao('3', 'Questao 2', 'Resposta esperada 2');
+    this.addQuestao('3', 'Questao 3', 'Resposta esperada 3');
+    this.addQuestao('3', 'Questao 4', 'Resposta esperada 4');
+    this.roteiroService.deleteQuestao('3', 1);
+    this.roteiroService.getNoQuestoes('3');
+    this.roteiroService.getQuestoes('3');
+
   }
+  // ***************
+  // *  MATRICULA  * 
+  // ***************
+
   
+  // ****************
+  // *    PESSOA    * 
+  // ****************
   cadastrarPessoa(cpf:string, nome:string, email:string, senha:string){
     const pessoa = new Pessoa;
     pessoa.cpf = cpf;
@@ -45,14 +65,15 @@ export class DummyDbComponent implements OnInit {
     }
   }
 
-  getRoteirosDono(donoCpf: string) {
-    console.log(this.roteiroService.getRoteirosDono(donoCpf));
-  }
+  // ***************
+  // *   ROTEIRO   * 
+  // ***************
 
-  cadastrarRoteiro(donoCpf: string, nome:string) {
+  cadastrarRoteiro(donoCpf: string, nome: string, id: string) {
     const roteiro = new Roteiro;
     roteiro.donoCpf = donoCpf;
     roteiro.nome = nome;
+    roteiro.id = id;
     if (this.roteiroService.addRoteiro(roteiro)) {
       console.log("Roteiro de " + nome  + " cadastrado");
     }
@@ -61,4 +82,43 @@ export class DummyDbComponent implements OnInit {
     }
   }
 
+  updateRoteiro() {
+    this.roteiroService.getRoteiro('3')
+      .then(v => {
+        v.nome = 'cu';
+        this.roteiroService.updateRoteiro(v);
+      });
+  }
+
+  addQuestao(roteiroId: string, pergunta: string, respostaEsperada: string) {
+    const q = new Questao;
+    q.pergunta = pergunta;
+    q.respostaEsperada = respostaEsperada;
+    this.roteiroService.addQuestao(roteiroId, q);
+  }
+
+  getRoteirosDono(donoCpf: string) {
+    console.log(this.roteiroService.getRoteirosDono(donoCpf));
+  }
+
+  // ***************
+  // *    TURMA    * 
+  // ***************
+
+  cadastrarTurma(id: string, creatorCpf: string) {
+    let turma = new Turma;
+    turma.id = id;
+
+    this.pessoaService.getPessoa(creatorCpf)
+      .then(value => {
+        turma.instrutores.push(value);
+
+        if (this.turmaService.addTurma(turma)) {
+          console.log("Turma " + id + " cadastrada com sucesso");
+        }
+        else {
+          console.log("Turma " + id + " já existe");
+        }
+    });
+  }
 }
