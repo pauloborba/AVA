@@ -19,6 +19,7 @@ import { GerenciarTurmaComponent } from './gerenciar-turma/gerenciar-turma.compo
 import { RoteiroService } from './shared/service/roteiro.service';
 import { GerenciarRoteirosComponent } from './gerenciar-roteiros/gerenciar-roteiros.component';
 import { GerenciarEstatisticasComponent } from './gerenciar-estatisticas/gerenciar-estatisticas.component';
+import { DummyDbComponent } from './dummy-db/dummy-db.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { GerenciarEstatisticasComponent } from './gerenciar-estatisticas/gerenci
     CadastroRoteiroComponent,
     GerenciarTurmaComponent,
     GerenciarRoteirosComponent,
-    GerenciarEstatisticasComponent
+    GerenciarEstatisticasComponent,
+    DummyDbComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +66,10 @@ import { GerenciarEstatisticasComponent } from './gerenciar-estatisticas/gerenci
       {
         path: 'turma-home',
         component: TurmaHomeComponent,
+      },    
+      {
+        path: 'populate',
+        component: DummyDbComponent,
       },    
     ]),
   ],
