@@ -14,7 +14,7 @@ export class PessoaService {
   constructor(private http: Http) { }
 
   // Retorna todas as pessoas cadastradas
-  public getPessoas(): Promise<Pessoa> {
+  public getPessoas(): Promise<Pessoa[]> {
     return this.http.get(PessoaService.baseUrl + "/pessoas")
       .toPromise()
       .then(value => value.json());
