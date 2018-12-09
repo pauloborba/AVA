@@ -43,7 +43,7 @@ export class CadastroMatriculaComponent implements OnInit {
         }),
     ]).then(() => {
       this.matriculaService.addMatricula(this.matricula);
-      this.turmaService.addAluno(this.matricula.turma.id, this.matricula.aluno);
+      this.turmaService.addAluno(this.matricula.turma.id, this.matricula.aluno.cpf);
       this.redirectMostraTurmas();
     })
   }

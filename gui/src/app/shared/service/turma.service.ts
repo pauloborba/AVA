@@ -80,21 +80,32 @@ export class TurmaService {
   }
 
   // Cadastra uma Turma
-  public addTurma(t: Turma): Promise<Boolean> {
+  public addTurma(turmaId: string, cpfCreator: string): Promise<Boolean> {
+    const t = new Turma;
+    t.id = turmaId;
+
+    const creator = new Pessoa;
+    creator.cpf = cpfCreator;
+    t.instrutores.push(creator);
+
     return this.http.post(TurmaService.baseUrl + '/turma', t.toJSON(), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
   }
 
   // Cadastra um Instrutor na Turma com id turmaId, retorna false se o instrutor já entiver cadastrado ou se a turma nao existir
-  public addInstrutor(turmaId: string, i: Pessoa): Promise<Boolean> {
+  public addInstrutor(turmaId: string, cpf: string): Promise<Boolean> {
+    const i = new Pessoa;
+    i.cpf = cpf;
     return this.http.post(TurmaService.baseUrl + '/turma/' + turmaId + '/instrutor', JSON.stringify(i), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
   }
 
   // Cadastra um Aluno na Turma com id turmaId, retorna false se o aluno já esta cadastrado ou se a turma nao existir
-  public addAluno(turmaId: string, a: Pessoa): Promise<Boolean> {
+  public addAluno(turmaId: string, cpf: string): Promise<Boolean> {
+    const a = new Pessoa;
+    a.cpf = cpf;
     return this.http.post(TurmaService.baseUrl + '/turma/' + turmaId + '/aluno', JSON.stringify(a), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
