@@ -112,8 +112,10 @@ export class TurmaService {
   }
 
   // postRoteiro
-  public addRoteiro(r: Roteiro): Promise<Boolean> {
-    return this.http.post(TurmaService.baseUrl + '/roteiro', JSON.stringify(r), TurmaService.options)
+  public addRoteiro(turmaId: string, roteiroId: string): Promise<Boolean> {
+    const r = new Roteiro;
+    r.id = roteiroId;
+    return this.http.post(TurmaService.baseUrl + '/turma/' + turmaId + '/roteiro', JSON.stringify(r), TurmaService.options)
       .toPromise()
       .then(value => value.json().success ? true : false);
   }
