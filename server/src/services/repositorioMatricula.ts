@@ -83,7 +83,6 @@ export class RepositorioMatricula {
             if (!m.respostasAluno[roteiroId]) {
                 m.respostasAluno[roteiroId] = new RespostaRoteiro;
             }
-            console.log(m.respostasAluno[roteiroId]);
             const clone = questaoRespondida.clone();
             m.respostasAluno[roteiroId].questoesRespondidas[noQuestao] = clone;
             return true;
