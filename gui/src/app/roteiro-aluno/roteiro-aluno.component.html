@@ -4,8 +4,11 @@
     <input #id />
     <div>
         <button (click) = 'clickBotaoEvent(1, id.value)'>Desistir</button>
-        <button (click) = 'setDuvida(true)'>Perguntar</button>
+        <button (click) = 'clickBotaoEvent(0, id.value)'>Perguntar</button>
         <button (click) = 'clickBotaoEvent(2, id.value)'>Submeter</button>
     </div>
-    <div *ngIf=''></div>
+
+    <div *ngIf='this.duvida==true'>
+        <app-enviar-resposta [questao]='this.qAtual' [roteiroId]='this.roteiroId'></app-enviar-resposta>
+    </div>
 </div>

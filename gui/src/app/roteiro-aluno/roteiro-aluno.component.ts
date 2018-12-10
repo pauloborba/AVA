@@ -19,6 +19,7 @@ export class RoteiroAlunoComponent implements OnInit {
   private cpfAluno: string;
   private turmaId: string;
   private duvida: boolean = false;
+  private qAtual:string;
 
   constructor(
     private roteiroService : RoteiroService,
@@ -46,12 +47,21 @@ export class RoteiroAlunoComponent implements OnInit {
     // 0 Pendente
     // 1 Desistida
     // 2 Concluida
+
+
+    if(status == 0){
+        this.duvida = true;
+    }
+    else{
+      this.duvida = false;
+    }
+
     console.log(this.questaoAtual + " <> " + this.perguntas.length);
     if (this.questaoAtual <= this.perguntas.length) {
-      this.duvida = false;
       const qr = new QuestaoRespondida;
       qr.pergunta = this.perguntas[this.questaoAtual-1];
       qr.resposta = resposta;
+      this.qAtual=this.perguntas[this.questaoAtual-1];
       qr.status = status;
       qr.tempo = -999;
       console.log(this.cpfAluno, this.turmaId, this.roteiroId, this.questaoAtual, qr);
@@ -61,10 +71,5 @@ export class RoteiroAlunoComponent implements OnInit {
     else 
       return; // TODO finish roteiro
   }
-  setDuvida(b: boolean) {
-    this.duvida = b;
-  }
-
-
 
 }
