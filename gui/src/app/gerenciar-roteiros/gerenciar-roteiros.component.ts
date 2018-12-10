@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {Roteiro} from '../shared/roteiro.model';
 import {RoteiroService} from '../shared/service/roteiro.service';
+import {TurmaService} from '../shared/service/turma.service';
 
 @Component({
   selector: 'app-gerenciar-roteiros',
@@ -20,14 +21,22 @@ export class GerenciarRoteirosComponent implements OnInit {
     this.router.navigate(['./roteiro-professor'],{queryParams:{cpfAtual:this.cpfAtual, id:id}})
   }
 
-  public adicionarRoteiro(){
-    this.router.navigate(['/cadastro-roteiro'],{queryParams:{cpfAtual:this.cpfAtual, turmaAtual:this.turmaAtual}});
+  public adicionarATurma(turmaId: string, roteiroId: string): Boolean{
+    this.turmaService.addRoteiro(this.turmaAtual, roteiroId)
+    .then(
+      value => {
+        console.log("roteiro cadastrado");
+        return true;
+      }
+    )
+    return false;
   }
   
   constructor(
     private roteiroService:RoteiroService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private turmaService:TurmaService,) { }
 
   ngOnInit() {
     this.roteiroService.getRoteirosDono(this.cpfAtual).then(
