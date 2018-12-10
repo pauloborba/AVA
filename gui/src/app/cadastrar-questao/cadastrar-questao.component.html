@@ -1,0 +1,10 @@
+<div>
+  <p> Cadastrar Questão </p>
+  <form>
+    <input id="pergunta" #pergunta placeholder="pergunta">
+    <br/>
+    <input id="resposta" #resposta placeholder="resposta esperada"/>
+    <br/>
+    <button id="Adicionar" (click)="criarQuestao(pergunta.value, resposta.value)"  > Adicionar </button>
+  </form>
+</div>

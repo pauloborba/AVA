@@ -1,0 +1,8 @@
+<div>
+  <div *ngIf="isAluno()">
+        <app-mostrar-roteiros [cpfAtual]='this.cpfatual' [turmaAtual]='this.idatual'></app-mostrar-roteiros>
+  </div>
+  <div *ngIf="isInstrutor()">
+        <app-gerenciar-turma [cpfAtual]='this.cpfatual' [turmaAtual]='this.idatual'></app-gerenciar-turma>
+  </div>
+</div>

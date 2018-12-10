@@ -1,0 +1,8 @@
+<div>
+    <table>
+        <tr *ngFor="let r of roteiros">
+            <td>{{r.nome}}</td>
+            <button (click) = 'redirectAcessarRoteiro(r.id)'>Ir</button>
+        </tr>
+    </table>
+  </div>

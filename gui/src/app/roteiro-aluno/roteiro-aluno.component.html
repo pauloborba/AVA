@@ -1,0 +1,8 @@
+<div>
+    <app-questao [nQuestao]='this.questaoAtual' [idRoteiro]='this.roteiroId'></app-questao>
+    <div>
+            <button (click) = 'changeQuestion()'>Desistir</button>
+            <button (click) = 'changeQuestion()'>Perguntar</button>
+            <button (click)='entregarRoteiro()'>Entregar Roteiro</button>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <button (click)="setRender('Gerenciar')">Gerenciar Roteiros</button>
+  <button (click)="setRender('Estatistica')">Estatisticas</button>
+
+<div *ngIf="this.renderAtual() == 'Gerenciar'">
+    <app-gerenciar-roteiros [cpfAtual]='this.cpfAtual' [turmaAtual]='this.turmaAtual'></app-gerenciar-roteiros>
+  </div>
+  <div *ngIf="this.renderAtual() == 'Estatistica'">
+      <app-gerenciar-estatisticas [cpfAtual]='this.cpfAtual' [turmaAtual]='this.turmaAtual'></app-gerenciar-estatisticas>
+  </div>
+
+</div>

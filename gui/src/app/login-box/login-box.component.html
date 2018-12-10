@@ -1,0 +1,10 @@
+<div>
+  <form>
+    <input #cpf placeholder="cpf">
+    <br/>
+    <input #senha type="password" placeholder="senha"/>
+    <br/>
+    <button id="loginButton" (click)="checkExistent(cpf.value, senha.value); senha.value=''">Entrar</button>
+    <button id="cadastre" (click)="redirectToCadastro();">Cadastre-se</button>
+  </form>
+</div>
