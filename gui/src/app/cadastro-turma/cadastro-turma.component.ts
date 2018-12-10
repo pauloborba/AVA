@@ -25,24 +25,15 @@ export class CadastroTurmaComponent implements OnInit {
     private router: Router) {
   }
 
-  cadastroNovaTurma(Id: string) {
-    let turma = new Turma;
-    turma.id = Id;
-
-    this.pessoaService.getPessoa(this.cpfatual)
-      .then(value => {
-        turma.instrutores.push(value);
-
-        if (this.turmaService.addTurma(turma)) {
-          console.log("turma criada com sucesso");
-          this.redirect(this.cpfatual);
-        }
-        else {
-          console.log("turma já existe");
-        }
-      });
+  cadastroNovaTurma(turmaId: string, creatorCpf: string) {
+    if (this.turmaService.addTurma(turmaId, creatorCpf)) {
+      console.log("Turma " + turmaId + " cadastrada com sucesso");
+    }
+    else {
+      console.log("Turma " + turmaId + " já existe");
+    }
   }
-
+  
   ngOnInit() {
     this.route
         .queryParams

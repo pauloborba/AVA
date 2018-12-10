@@ -15,8 +15,8 @@ import { TouchSequence } from 'selenium-webdriver';
 })
 export class CadastroMatriculaComponent implements OnInit {
 
-  cpfatual:String;
-  matricula:Matricula;
+  cpfatual: string;
+  matricula: Matricula;
 
   constructor(
     private turmaService: TurmaService,
@@ -30,22 +30,10 @@ export class CadastroMatriculaComponent implements OnInit {
     }
 
 
-  public entraTurma(id:string){
-    
-    Promise.all([
-      this.pessoaService.getPessoa(this.cpfatual)
-        .then(value => {
-            this.matricula.aluno = value;
-        }),
-      this.turmaService.getTurma(id)
-          .then(value => {
-            this.matricula.turma = value;
-        }),
-    ]).then(() => {
-      this.matriculaService.addMatricula(this.matricula);
-      this.turmaService.addAluno(this.matricula.turma.id, this.matricula.aluno);
+  public entraTurma(turmaId: string){
+      this.matriculaService.addMatricula(this.cpfatual, turmaId);
+      this.turmaService.addAluno(turmaId, this.cpfatual);
       this.redirectMostraTurmas();
-    })
   }
 
   ngOnInit() {

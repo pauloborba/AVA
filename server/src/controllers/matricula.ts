@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { RepositorioMatricula } from '../services/repositorioMatricula';
 import { Matricula } from '../models/Matricula';
 import { QuestaoRespondida } from '../models/QuestaoRespondida';
+import { Avaliacao } from '../models/Avaliacao';
 
 const repositorio = new RepositorioMatricula;
 
@@ -28,6 +29,19 @@ export const getRespostasAluno = (req: Request, res: Response) => {
 export const getQuestoesRespondidas = (req: Request, res: Response) => {
     const questoesRespondidas = repositorio.getQuestoesRespondidas(req.params.cpf, req.params.turmaId, req.params.roteiroId);
     sendJSON(res, JSON.stringify(questoesRespondidas));
+};
+
+export const addAvaliacao = (req: Request, res: Response) => {
+    const bool = repositorio.addAvaliacao(req.params.cpf, req.params.turmaId, req.params.roteiroId, Avaliacao.fromJSON(req.body));
+    if (bool) {
+        sendJSON(res, {
+            'success': 'A avaliacao foi cadastrada com sucesso'
+        });
+    } else {
+        res.status(400).send({
+            'failure': 'A avaliacao não pode ser cadastrada'
+        });
+    }
 };
 
 export const addQuestaoRespondida = (req: Request, res: Response) => {

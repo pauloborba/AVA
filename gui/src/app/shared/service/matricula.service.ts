@@ -25,39 +25,50 @@ export class MatriculaService {
 
   // getAvaliacoes
   public getAvaliacoes(cpf: string, turmaId: string): Promise<Avaliacao[]> {
-    return this.http.get(MatriculaService.baseUrl + '/matriculas/aluno/' + cpf + '/turma/' + turmaId + '/avaliacoes', MatriculaService.options)
+    return this.http.get(MatriculaService.baseUrl + '/matricula/aluno/' + cpf + '/turma/' + turmaId + '/avaliacoes', MatriculaService.options)
       .toPromise()
       .then(value => value.json());
   }
 
   // getRespostasAluno
   public getRespostas(cpf: string, turmaId: string): Promise<Map<string, RespostaRoteiro>> {
-    return this.http.get(MatriculaService.baseUrl + '/matriculas/aluno/' + cpf + '/turma/' + turmaId + '/respostasaluno', MatriculaService.options)
+    return this.http.get(MatriculaService.baseUrl + '/matricula/aluno/' + cpf + '/turma/' + turmaId + '/respostasaluno', MatriculaService.options)
       .toPromise()
       .then(value => value.json());
   }
 
   // getAvaliacao
   public getAvaliacao(cpf: string, turmaId: string, roteiroId: string): Promise<Avaliacao> {
-    return this.http.get(MatriculaService.baseUrl + '/matriculas/aluno/' + cpf + '/turma/' + turmaId + '/roteiro' + roteiroId + '/avaliacao', MatriculaService.options)
+    return this.http.get(MatriculaService.baseUrl + '/matricula/aluno/' + cpf + '/turma/' + turmaId + '/roteiro/' + roteiroId + '/avaliacao', MatriculaService.options)
       .toPromise()
       .then(value => value.json());
   }
 
   // getQuestoesRespondidas
   public getQuestoesRespondidas(cpf: string, turmaId: string, roteiroId: string): Promise<Map<number, QuestaoRespondida>> {
-    return this.http.get(MatriculaService.baseUrl + '/matriculas/aluno/' + cpf + '/turma/' + turmaId + '/roteiro' + roteiroId + '/questoesrespondidas', MatriculaService.options)
+    return this.http.get(MatriculaService.baseUrl + '/matricula/aluno/' + cpf + '/turma/' + turmaId + '/roteiro/' + roteiroId + '/questoesrespondidas', MatriculaService.options)
       .toPromise()
       .then(value => value.json());
   }
 
   // Cadastra matricula
-  public addMatricula(m: Matricula): Promise<Boolean> {
+  public addMatricula(cpfAluno: string, turmaId: string): Promise<Boolean> {
+    const m = new Matricula;
+    m.aluno.cpf = cpfAluno;
+    m.turma.id = turmaId;
+
     return this.http.post(MatriculaService.baseUrl + '/matricula', JSON.stringify(m), MatriculaService.options)
     .toPromise()
     .then(value => value.json().success ? true : false);
   }
   
+  // addQuestaoRespondida
+  public addAvaliacao(cpf: string, turmaId: string, roteiroId: string, a: Avaliacao): Promise<Boolean> {
+    return this.http.post(MatriculaService.baseUrl + '/matricula/aluno/' + cpf + '/turma/' + turmaId + '/roteiro/' + roteiroId, JSON.stringify(a), MatriculaService.options)
+      .toPromise()
+      .then(value => value.json().success ? true : false);
+  }
+
   // addQuestaoRespondida
   public addQuestaoRespondida(cpf: string, turmaId: string, roteiroId: string, noQuestao: number,  qr: QuestaoRespondida): Promise<Boolean> {
     return this.http.post(MatriculaService.baseUrl + '/matricula/aluno/' + cpf + '/turma/' + turmaId + '/roteiro/' + roteiroId + '/questao/' + noQuestao, JSON.stringify(qr), MatriculaService.options)

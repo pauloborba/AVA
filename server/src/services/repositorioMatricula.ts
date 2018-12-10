@@ -13,6 +13,7 @@ export class RepositorioMatricula {
     get matricula(): Matricula[] {
         return this._matricula;
     }
+
     public cadastrar(matricula: Matricula): boolean {
         if (!this.findByAlunoTurma(matricula.aluno.cpf, matricula.turma.id)) {
             const clone = matricula.clone();
@@ -42,7 +43,7 @@ export class RepositorioMatricula {
     public getAvaliacao(cpfAluno: string, turmaId: string, roteiroId: string): Avaliacao {
         const m = this.findByAlunoTurma(cpfAluno, turmaId);
         if (m) {
-            return m.avaliacoes[roteiroId];
+            return m.avaliacoes[roteiroId] || null;
         }
         return null;
     }
@@ -66,15 +67,26 @@ export class RepositorioMatricula {
         return null;
     }
 
+    public addAvaliacao(cpfAluno: string, turmaId: string, roteiroId: string, avaliacao: Avaliacao): boolean {
+        const m = this.findByAlunoTurma(cpfAluno, turmaId);
+        if (m) {
+            const clone: Avaliacao = avaliacao.clone();
+            m.avaliacoes[roteiroId] = clone;
+            return true;
+        }
+        return false;
+    }
+
     public addQuestaoRespondida(cpfAluno: string, turmaId: string, roteiroId: string, noQuestao: number, questaoRespondida: QuestaoRespondida): boolean {
         const m = this.findByAlunoTurma(cpfAluno, turmaId);
         if (m) {
-            const ra = m.respostasAluno[roteiroId];
-            if (ra) {
-                const clone = questaoRespondida.clone();
-                ra.questoesRespondidas[noQuestao] = clone;
-                return true;
+            if (!m.respostasAluno[roteiroId]) {
+                m.respostasAluno[roteiroId] = new RespostaRoteiro;
             }
+            console.log(m.respostasAluno[roteiroId]);
+            const clone = questaoRespondida.clone();
+            m.respostasAluno[roteiroId].questoesRespondidas[noQuestao] = clone;
+            return true;
         }
         return false;
     }

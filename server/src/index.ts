@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { getPessoas, postPessoa, putPessoa, getPessoa, deletePessoa } from './controllers/pessoa';
 import { getTurmas, postTurma, putTurma, getTurma, deleteTurma, getIntrutores, getAlunos, postInstrutor, postAluno, postRoteiroTurma, deleteInstrutor, deleteAluno, hasAluno, hasInstrutor, hasRoteiro, deleteRoteiroTurma, getRoteirosTurma, getTurmasPessoa } from './controllers/turma';
-import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula, getMatriculas } from './controllers/matricula';
+import { getAvaliacoes, getAvaliacao, getRespostasAluno, getQuestoesRespondidas, addQuestaoRespondida, postMatricula, deleteMatricula, getMatriculas, addAvaliacao } from './controllers/matricula';
 import { getRoteiro, getNoQuestoes, getQuestoes, postRoteiro, postQuestao, putRoteiro, deleteQuestao, deleteRoteiro, getRoteiros, getRoteirosDono } from './controllers/roteiro';
 
 export const app = express();
@@ -53,6 +53,7 @@ app.get('/matricula/aluno/:cpf/turma/:turmaId/respostasaluno', getRespostasAluno
 app.get('/matricula/aluno/:cpf/turma/:turmaId/roteiro/:roteiroId/avaliacao', getAvaliacao);
 app.get('/matricula/aluno/:cpf/turma/:turmaId/roteiro/:roteiroId/questoesrespondidas', getQuestoesRespondidas);
 
+app.post('/matricula/aluno/:cpf/turma/:turmaId/roteiro/:roteiroId', addAvaliacao);
 app.post('/matricula/aluno/:cpf/turma/:turmaId/roteiro/:roteiroId/questao/:noQuestao', addQuestaoRespondida);
 app.post('/matricula', postMatricula);
 
