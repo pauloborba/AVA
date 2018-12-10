@@ -22,6 +22,7 @@ export class GerenciarRoteirosComponent implements OnInit {
   }
 
   public adicionarATurma(turmaId: string, roteiroId: string): Boolean{
+    
     this.turmaService.addRoteiro(this.turmaAtual, roteiroId)
     .then(
       value => {
@@ -30,6 +31,10 @@ export class GerenciarRoteirosComponent implements OnInit {
       }
     )
     return false;
+  }
+
+  public adicionarRoteiro(){
+    this.router.navigate(['/cadastro-roteiro'],{queryParams:{cpfAtual:this.cpfAtual, turmaAtual:this.turmaAtual}});
   }
   
   constructor(
