@@ -14,8 +14,8 @@ export class CadastroTurmaComponent implements OnInit {
 
   cpfatual: string;
 
-  public redirect(cpf: String) {
-    this.router.navigate(['/turmas'],{queryParams: {cpf: cpf}});
+  public redirect() {
+    this.router.navigate(['/turmas'],{queryParams: {cpf: this.cpfatual}});
   }
 
   constructor(
@@ -25,9 +25,10 @@ export class CadastroTurmaComponent implements OnInit {
     private router: Router) {
   }
 
-  cadastroNovaTurma(turmaId: string, creatorCpf: string) {
-    if (this.turmaService.addTurma(turmaId, creatorCpf)) {
+  cadastroNovaTurma(turmaId: string) {
+    if (this.turmaService.addTurma(turmaId, this.cpfatual)) {
       console.log("Turma " + turmaId + " cadastrada com sucesso");
+      this.redirect();
     }
     else {
       console.log("Turma " + turmaId + " já existe");
