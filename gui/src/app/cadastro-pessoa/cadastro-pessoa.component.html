@@ -1,16 +1,16 @@
 <div>
-    <h1>
-        CADASTRO DE NOVA PESSOA!!!
-      </h1>
+    <h3>
+        Cadastro Nova Pessoa
+      </h3>
       <form>
-        <input #nome/>
+        <input #nome placeholder="nome"/>
         <br/>
-        <input #cpf/>
+        <input #cpf placeholder="cpf"/>
         <br/> 
-        <input #email/>
+        <input #email placeholder="e-mail"/>
         <br/>
-        <input #senha type="password"/>
+        <input #senha type="password" placeholder="senha"/>
         <br/>
-        <button id="cadastrarButton" (click)="cadastroNovoPessoa(cpf.value, nome.value, email.value, senha.value)">Logar! </button>
+        <button id="cadastrarButton" (click)="cadastroNovoPessoa(cpf.value, nome.value, email.value, senha.value)">Cadastrar</button>
       </form>
 </div>

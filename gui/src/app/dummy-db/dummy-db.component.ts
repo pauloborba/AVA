@@ -90,7 +90,14 @@ export class DummyDbComponent implements OnInit {
               ])
               .then(() => {
                 Promise.all([
-
+                  this.turmaService.addRoteiro('Turma 1', '1'),
+                  this.turmaService.addRoteiro('Turma 1', '2'),
+                  this.turmaService.addRoteiro('Turma 1', '3'),
+                  this.turmaService.addRoteiro('Turma 1', '4'),
+                  this.turmaService.addRoteiro('Turma 2', '1'),
+                  this.turmaService.addRoteiro('Turma 2', '2'),
+                  this.turmaService.addRoteiro('Turma 2', '3'),
+                  this.turmaService.addRoteiro('Turma 2', '4'),
                 ])
               })
             })
@@ -177,4 +184,5 @@ export class DummyDbComponent implements OnInit {
   cadastrarTurma(turmaId: string, creatorCpf: string): Promise<any> {
     return this.turmaService.addTurma(turmaId, creatorCpf);
   }
+
 }

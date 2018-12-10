@@ -21,6 +21,10 @@ export class LoginBoxComponent implements OnInit {
     this.router.navigate(['/turmas'],{queryParams: {cpf: cpf}});
   }
 
+  public redirectToCadastro(){
+    this.router.navigate(['/cadastro-pessoa']);
+  }
+
   public checkExistent(cpf:String, senha:String) : Boolean{
       // Make get to check if there is an aluno with that user
     this.pessoaService.getPessoa(cpf)
@@ -40,6 +44,8 @@ export class LoginBoxComponent implements OnInit {
       )
       return false;
   }
+
+
 
   ngOnInit() {
     
