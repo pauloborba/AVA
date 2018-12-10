@@ -7,6 +7,10 @@ import { Pessoa } from '../shared/pessoa.model';
 import { Roteiro } from '../shared/roteiro.model';
 import { Turma } from '../shared/turma.model';
 import { Questao } from '../shared/questao.model';
+import { QuestaoRespondida } from '../shared/questaoresponida.model';
+import { Status } from '../shared/status.model';
+import { Avaliacao } from '../shared/avaliacao.model';
+import { Meta } from '../shared/meta.model';
 
 @Component({
   selector: 'app-dummy-db',
@@ -42,14 +46,33 @@ export class DummyDbComponent implements OnInit {
     this.cadastrarTurma('aaa', '1');
     this.turmaService.addInstrutor('aaa', '2');
     this.turmaService.addAluno('aaa', '3');
-   
 
+    this.entraTurma('4', 'aaa');
+
+    const a = new Avaliacao;
+    a.conceito = "Como trocar fralda";
+    a.meta = Meta.NULL;
+
+    this.matriculaService.addAvaliacao('4','aaa','3',a);
+
+    const qr = new QuestaoRespondida;
+    qr.pergunta = "";
+    qr.resposta = "";
+    qr.status = Status.Concluida;
+    qr.tempo = 1233;
+
+    this.matriculaService.addQuestaoRespondida('4', 'aaa', '3', 2, qr);
+    this.matriculaService.getRespostas('4', 'aaa');
+    this.matriculaService.getAvaliacao('4', 'aaa', '3');
 
   }
   // ***************
   // *  MATRICULA  * 
   // ***************
-
+  public entraTurma(cpfAluno: string, turmaId: string){
+    this.matriculaService.addMatricula(cpfAluno, turmaId);
+    this.turmaService.addAluno(turmaId, cpfAluno);
+  }
   
   // ****************
   // *    PESSOA    * 

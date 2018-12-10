@@ -4,8 +4,8 @@ export class Avaliacao {
     private _conceito: string;
     private _meta: Meta;
 
-    public constructor(conceito: string) {
-        this.conceito = conceito;
+    public constructor() {
+        this.conceito = "";
         this._meta = Meta.NULL;
     }
 
@@ -25,10 +25,29 @@ export class Avaliacao {
         this._meta = value;
     }
 
+    public copyFrom(from: Avaliacao) {
+        this.meta = from.meta;
+        this.conceito = from.conceito;
+    }
+
+    public clone(): Avaliacao {
+        const a = new Avaliacao;
+        a.copyFrom(this);
+        return a;
+    }
+    
     public toJSON() {
         return {
             conceito: this.conceito,
             meta: this.meta,
         };
     }
+  
+    public static fromJSON(json: any): Avaliacao {
+        return Object.assign(new Avaliacao, {
+            _conceito: json.conceito,
+            _meta: json.meta,
+        });
+    }
+
 }
