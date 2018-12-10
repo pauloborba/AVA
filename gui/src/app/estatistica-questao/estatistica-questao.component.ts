@@ -35,6 +35,7 @@ export class EstatisticaQuestaoComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     // Pegar as respostas de um roteiro pelo id dele e da turma, armazenar no array de questao respondida
 
     

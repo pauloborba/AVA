@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {RoteiroService} from '../shared/service/roteiro.service';
+import {Roteiro} from '../shared/roteiro.model';
+import {RespostaRoteiro} from '../shared/respostaroteiro.model';
+
 
 @Component({
   selector: 'app-estatistica-aluno',
@@ -6,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./estatistica-aluno.component.css']
 })
 export class EstatisticaAlunoComponent implements OnInit {
+
+  private alunoRoteiro:RespostaRoteiro[];
 
   constructor() { }
 
