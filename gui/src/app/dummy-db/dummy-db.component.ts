@@ -42,28 +42,32 @@ export class DummyDbComponent implements OnInit {
     this.addQuestao('3', 'Questao 2', 'Resposta esperada 2');
     this.addQuestao('3', 'Questao 3', 'Resposta esperada 3');
     this.addQuestao('3', 'Questao 4', 'Resposta esperada 4');
-   
-    this.cadastrarTurma('aaa', '1');
-    this.turmaService.addInstrutor('aaa', '2');
-    this.turmaService.addAluno('aaa', '3');
+    
+    this.cadastrarTurma('IF688', '1');
+    this.turmaService.addInstrutor('IF688', '2');
+    
+    this.entraTurma('4', 'IF688');
+    this.entraTurma('5', 'IF688');
 
-    this.entraTurma('4', 'aaa');
+    this.addAvaliacao('4', 'Conceito 1', Meta.MPA);
+    this.addAvaliacao('4', 'Conceito 2', Meta.MANA);
+    this.addAvaliacao('4', 'Conceito 3', Meta.MANA);
+    this.addAvaliacao('4', 'Conceito 4', Meta.MA);
 
-    const a = new Avaliacao;
-    a.conceito = "Como trocar fralda";
-    a.meta = Meta.NULL;
-
-    this.matriculaService.addAvaliacao('4','aaa','3',a);
-
+    this.addAvaliacao('5', 'Conceito 1', Meta.MPA);
+    this.addAvaliacao('5', 'Conceito 2', Meta.MA);
+    this.addAvaliacao('5', 'Conceito 3', Meta.MA);
+    this.addAvaliacao('5', 'Conceito 4', Meta.MA);
+    
     const qr = new QuestaoRespondida;
     qr.pergunta = "";
     qr.resposta = "";
     qr.status = Status.Concluida;
     qr.tempo = 1233;
 
-    this.matriculaService.addQuestaoRespondida('4', 'aaa', '3', 2, qr);
-    this.matriculaService.getRespostas('4', 'aaa');
-    this.matriculaService.getAvaliacao('4', 'aaa', '3');
+    this.matriculaService.addQuestaoRespondida('4', 'IF688', '3', 2, qr);
+    this.matriculaService.getRespostas('4', 'IF688');
+    this.matriculaService.getAvaliacao('4', 'IF688', '3');
 
   }
   // ***************
@@ -72,6 +76,13 @@ export class DummyDbComponent implements OnInit {
   public entraTurma(cpfAluno: string, turmaId: string){
     this.matriculaService.addMatricula(cpfAluno, turmaId);
     this.turmaService.addAluno(turmaId, cpfAluno);
+  }
+
+  public addAvaliacao(cpf: string, conceito: string, meta: Meta) {
+    const a = new Avaliacao;
+    a.conceito = conceito;
+    a.meta = meta;
+    this.matriculaService.addAvaliacao(cpf,'IF688','3',a);
   }
   
   // ****************
