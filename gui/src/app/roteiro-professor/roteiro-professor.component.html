@@ -1,8 +1,19 @@
 <div>
   <button (click)="setRender('Adicionar')">Adicionar Questão</button>
+  <button (click)="setRender('Questao')">Estatísticas Questão</button>
+  <button (click)="setRender('Aluno')">Estatísticas Aluno</button>
+  
 
   <div *ngIf="this.renderAtual() == 'Adicionar'">
     <app-cadastrar-questao [id]='this.id'></app-cadastrar-questao>
+  </div>
+
+  <div *ngIf="this.renderAtual() == 'Questao'">
+    <app-estatistica-questao [id]='this.id'></app-estatistica-questao>
+  </div>
+
+  <div *ngIf="this.renderAtual() == 'Aluno'">
+    <app-estatistica-aluno [id]='this.id'></app-estatistica-aluno>
   </div>
 
 </div>

@@ -2,6 +2,7 @@
   <tr *ngFor="let r of roteiros">
       <td>{{r.nome}}</td>
       <button  (click) = 'redirectAcessarRoteiro(r.id, this.cpfAtual)'> Editar </button>
+      <button  (click) = 'redirectAcessarRoteiro(r.id, this.cpfAtual)'> Adicionar à turma </button>
   </tr>
 </table>
 
