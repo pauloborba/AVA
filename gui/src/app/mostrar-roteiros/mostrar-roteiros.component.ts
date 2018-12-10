@@ -19,7 +19,7 @@ export class MostrarRoteirosComponent implements OnInit {
   turmaAtual:string;
 
   public redirectAcessarRoteiro(id:string){
-    this.router.navigate(['/roteiro'],{queryParams: {id:id}});
+    this.router.navigate(['/roteiro-aluno'],{queryParams: {id:id}});
   }
 
   private roteiros:Roteiro[];
