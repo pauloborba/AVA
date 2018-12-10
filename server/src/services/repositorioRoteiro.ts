@@ -77,8 +77,12 @@ export class RepositorioRoteiro {
 
     public cadastrar(roteiro: Roteiro): boolean {
         const clone = roteiro.clone();
-        if (roteiro.id != '3')
+        if (roteiro.id == '-1') {
             clone.id = "" + Math.random();
+        }
+        else if (this.findByRoteiroId(roteiro.id)) {
+            return false;
+        }
         this._roteiros.push(clone);
         return true;
     }
