@@ -44,22 +44,22 @@ export class DummyDbComponent implements OnInit {
       ])
       .then( () => {
         Promise.all([
-          this.addQuestao('1', 'Questao 1', 'Resposta esperada 1'),
-          this.addQuestao('1', 'Questao 2', 'Resposta esperada 2'),
-          this.addQuestao('1', 'Questao 3', 'Resposta esperada 3'),
-          this.addQuestao('1', 'Questao 4', 'Resposta esperada 4'),
-          this.addQuestao('2', 'Questao 1', 'Resposta esperada 1'),
-          this.addQuestao('2', 'Questao 2', 'Resposta esperada 2'),
-          this.addQuestao('2', 'Questao 3', 'Resposta esperada 3'),
-          this.addQuestao('2', 'Questao 4', 'Resposta esperada 4'),
-          this.addQuestao('3', 'Questao 1', 'Resposta esperada 1'),
-          this.addQuestao('3', 'Questao 2', 'Resposta esperada 2'),
-          this.addQuestao('3', 'Questao 3', 'Resposta esperada 3'),
-          this.addQuestao('3', 'Questao 4', 'Resposta esperada 4'),
-          this.addQuestao('4', 'Questao 1', 'Resposta esperada 1'),
-          this.addQuestao('4', 'Questao 2', 'Resposta esperada 2'),
-          this.addQuestao('4', 'Questao 3', 'Resposta esperada 3'),
-          this.addQuestao('4', 'Questao 4', 'Resposta esperada 4'),
+          this.addQuestao('1', 'Pergunta 1', 'Resposta esperada 1'),
+          this.addQuestao('1', 'Pergunta 2', 'Resposta esperada 2'),
+          this.addQuestao('1', 'Pergunta 3', 'Resposta esperada 3'),
+          this.addQuestao('1', 'Pergunta 4', 'Resposta esperada 4'),
+          this.addQuestao('2', 'Pergunta 1', 'Resposta esperada 1'),
+          this.addQuestao('2', 'Pergunta 2', 'Resposta esperada 2'),
+          this.addQuestao('2', 'Pergunta 3', 'Resposta esperada 3'),
+          this.addQuestao('2', 'Pergunta 4', 'Resposta esperada 4'),
+          this.addQuestao('3', 'Pergunta 1', 'Resposta esperada 1'),
+          this.addQuestao('3', 'Pergunta 2', 'Resposta esperada 2'),
+          this.addQuestao('3', 'Pergunta 3', 'Resposta esperada 3'),
+          this.addQuestao('3', 'Pergunta 4', 'Resposta esperada 4'),
+          this.addQuestao('4', 'Pergunta 1', 'Resposta esperada 1'),
+          this.addQuestao('4', 'Pergunta 2', 'Resposta esperada 2'),
+          this.addQuestao('4', 'Pergunta 3', 'Resposta esperada 3'),
+          this.addQuestao('4', 'Pergunta 4', 'Resposta esperada 4'),
         ])
         .then(() => {
           Promise.all([
