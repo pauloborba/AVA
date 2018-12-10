@@ -42,7 +42,7 @@ export class RoteiroService {
   }
   
   // Return all questions of a Roteiro, null if he does not exist
-  public getQuestoes(roteiroId: string): Promise<Questao[]> {
+  public getQuestoes(roteiroId: string): Promise<Map<number, Questao>> {
     return this.http.get(RoteiroService.baseUrl + '/roteiro/' + roteiroId + '/questoes', RoteiroService.options)
       .toPromise()
       .then(value => value.json());

@@ -368,22 +368,6 @@ export class DummyDbComponent implements OnInit {
         })
       })
     });    
-
-    
-    
-    const qr = new QuestaoRespondida;
-    qr.pergunta = "Pergunta 1";
-    qr.resposta = "Resposta 1";
-    qr.status = Status.Concluida;
-    qr.tempo = 1233;
-
-    this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '3', 2, qr);
-
-
-
-
-
-
   }
   // ***************
   // *  MATRICULA  *
