@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-roteiro-aluno',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoteiroAlunoComponent implements OnInit {
 
-  constructor() { }
+  private roteiroId:string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router){
+  }
 
   ngOnInit() {
+    this.route
+        .queryParams
+        .subscribe(params => {
+            this.roteiroId = params['id'];
+        });
   }
 
 }
