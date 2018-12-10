@@ -1,9 +1,10 @@
 <div>
   <form>
-    <input #cpf>
+    <input #cpf placeholder="cpf">
     <br/>
-    <input #senha type="password"/>
+    <input #senha type="password" placeholder="senha"/>
     <br/>
-    <button id="loginButton" (click)="checkExistent(cpf.value, senha.value); senha.value=''">Logar! </button>
+    <button id="loginButton" (click)="checkExistent(cpf.value, senha.value); senha.value=''">Entrar</button>
+    <button id="cadastre" (click)="checkExistent(cpf.value, senha.value); senha.value=''">Cadastre-se</button>
   </form>
 </div>
