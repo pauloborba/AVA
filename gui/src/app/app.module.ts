@@ -20,6 +20,9 @@ import { RoteiroService } from './shared/service/roteiro.service';
 import { GerenciarRoteirosComponent } from './gerenciar-roteiros/gerenciar-roteiros.component';
 import { GerenciarEstatisticasComponent } from './gerenciar-estatisticas/gerenciar-estatisticas.component';
 import { DummyDbComponent } from './dummy-db/dummy-db.component';
+import { RoteiroProfessorComponent } from './roteiro-professor/roteiro-professor.component';
+import { CadastrarQuestaoComponent } from './cadastrar-questao/cadastrar-questao.component';
+import { RoteiroAlunoComponent } from './roteiro-aluno/roteiro-aluno.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { DummyDbComponent } from './dummy-db/dummy-db.component';
     GerenciarTurmaComponent,
     GerenciarRoteirosComponent,
     GerenciarEstatisticasComponent,
-    DummyDbComponent
+    DummyDbComponent,
+    RoteiroProfessorComponent,
+    CadastrarQuestaoComponent,
+    RoteiroAlunoComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,23 @@ import { DummyDbComponent } from './dummy-db/dummy-db.component';
       {
         path: 'populate',
         component: DummyDbComponent,
-      },    
+      },   
+      {
+        path: 'roteiro-professor',
+        component: RoteiroProfessorComponent,
+      },
+      {
+        path: 'roteiro-aluno',
+        component: RoteiroAlunoComponent,
+      },
+      {
+        path: 'mostrar-roteiro',
+        component: MostrarRoteirosComponent,
+      },
+      {
+        path: 'cadastro-roteiro',
+        component: CadastroRoteiroComponent,
+      }
     ]),
   ],
   providers: [
