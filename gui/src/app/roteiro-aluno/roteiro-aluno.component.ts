@@ -14,12 +14,10 @@ import { QuestaoRespondida } from '../shared/questaoresponida.model';
 export class RoteiroAlunoComponent implements OnInit {
 
   private roteiroId: string;
-  private perguntas: string[] = [];
-  private questaoAtual: number = 1;
   private cpfAluno: string;
   private turmaId: string;
-  private duvida: boolean = false;
-  private qAtual:string;
+  private qtdQuestoes:number;
+  private questaoAtual:number;
 
   constructor(
     private roteiroService : RoteiroService,
@@ -28,7 +26,22 @@ export class RoteiroAlunoComponent implements OnInit {
     private router: Router){
   }
 
+  public changeQuestion(){
+    this.questaoAtual = this.questaoAtual+1;
+    /*
+        Cenario 3 e 4 de Borba
+        Cenario 1 e 2 de Guila
+    */
+  }
+
+  publicentregarRoteiro(){
+    /*
+      Cenario 3 e 4 de Guila
+    */
+  }
+
   ngOnInit() {
+    this.questaoAtual = 1;
     this.route
         .queryParams
         .subscribe(params => {
@@ -36,40 +49,5 @@ export class RoteiroAlunoComponent implements OnInit {
             this.cpfAluno = params['cpf'];
             this.turmaId = params['turmaId'];
         });
-    this.roteiroService.getQuestoes(this.roteiroId).then(value => {
-      for (let e of Object.keys(value)) {
-        this.perguntas.push(value[e].pergunta);
-      }
-    });
   }
-
-  clickBotaoEvent(status: Status, resposta: string) {
-    // 0 Pendente
-    // 1 Desistida
-    // 2 Concluida
-
-
-    if(status == 0){
-        this.duvida = true;
-    }
-    else{
-      this.duvida = false;
-    }
-
-    console.log(this.questaoAtual + " <> " + this.perguntas.length);
-    if (this.questaoAtual <= this.perguntas.length) {
-      const qr = new QuestaoRespondida;
-      qr.pergunta = this.perguntas[this.questaoAtual-1];
-      qr.resposta = resposta;
-      this.qAtual=this.perguntas[this.questaoAtual-1];
-      qr.status = status;
-      qr.tempo = -999;
-      console.log(this.cpfAluno, this.turmaId, this.roteiroId, this.questaoAtual, qr);
-      this.matriculaService.addQuestaoRespondida(this.cpfAluno, this.turmaId, this.roteiroId, this.questaoAtual, qr); 
-      this.questaoAtual++;
-    }
-    else 
-      return; // TODO finish roteiro
-  }
-
 }

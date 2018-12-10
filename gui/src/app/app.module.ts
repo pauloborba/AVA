@@ -26,6 +26,7 @@ import { RoteiroAlunoComponent } from './roteiro-aluno/roteiro-aluno.component';
 import { EstatisticaQuestaoComponent } from './estatistica-questao/estatistica-questao.component';
 import { EstatisticaAlunoComponent } from './estatistica-aluno/estatistica-aluno.component';
 import { EnviarRespostaComponent } from './enviar-resposta/enviar-resposta.component';
+import { QuestaoComponent } from './questao/questao.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { EnviarRespostaComponent } from './enviar-resposta/enviar-resposta.compo
     EstatisticaQuestaoComponent,
     EstatisticaAlunoComponent,
     EnviarRespostaComponent,
+    QuestaoComponent,
   ],
   imports: [
     BrowserModule,
