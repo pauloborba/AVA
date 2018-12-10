@@ -1,8 +1,11 @@
 <div>
-  <table>
-    <tr *ngFor="let p of perguntas">
-        <p> {{p}}</p>
-        <app-questao ></app-questao>
-    </tr>
-</table>
+    <p>Questão {{questaoAtual}}:</p>
+    <p>{{perguntas[questaoAtual - 1]}}</p>
+    <input #id />
+    <div>
+        <button (click) = 'clickBotaoEvent(1, id.value)'>Desistir</button>
+        <button (click) = 'setDuvida(true)'>Perguntar</button>
+        <button (click) = 'clickBotaoEvent(2, id.value)'>Submeter</button>
+    </div>
+    <div *ngIf=''></div>
 </div>
