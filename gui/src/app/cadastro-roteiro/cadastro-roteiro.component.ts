@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class CadastroRoteiroComponent implements OnInit {
 
   private roteiro:Roteiro;
+  private cpfAtual:string;
 
   constructor(
     private roteiroService: RoteiroService,
@@ -23,12 +24,18 @@ export class CadastroRoteiroComponent implements OnInit {
 
     cadastroNovoRoteiro(nome:string){
         this.roteiro.nome = nome;
+        this.roteiro.donoCpf = this.cpfAtual;
         this.roteiroService.addRoteiro(this.roteiro).then(
           () => this.redirect()
         )
     }
 
   ngOnInit() {
+    this.route
+        .queryParams
+        .subscribe(params => {
+            this.cpfAtual = params['cpfAtual'];
+        });
   }
 
 }
