@@ -23,6 +23,8 @@ import { DummyDbComponent } from './dummy-db/dummy-db.component';
 import { RoteiroProfessorComponent } from './roteiro-professor/roteiro-professor.component';
 import { CadastrarQuestaoComponent } from './cadastrar-questao/cadastrar-questao.component';
 import { RoteiroAlunoComponent } from './roteiro-aluno/roteiro-aluno.component';
+import { EstatisticaQuestaoComponent } from './estatistica-questao/estatistica-questao.component';
+import { EstatisticaAlunoComponent } from './estatistica-aluno/estatistica-aluno.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { RoteiroAlunoComponent } from './roteiro-aluno/roteiro-aluno.component';
     DummyDbComponent,
     RoteiroProfessorComponent,
     CadastrarQuestaoComponent,
-    RoteiroAlunoComponent
+    RoteiroAlunoComponent,
+    EstatisticaQuestaoComponent,
+    EstatisticaAlunoComponent
   ],
   imports: [
     BrowserModule,
