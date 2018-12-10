@@ -12,6 +12,7 @@ export class CadastroRoteiroComponent implements OnInit {
 
   private roteiro:Roteiro;
   private cpfAtual:string;
+  private turmaAtual:string;
 
   constructor(
     private roteiroService: RoteiroService,
@@ -19,22 +20,25 @@ export class CadastroRoteiroComponent implements OnInit {
     private router: Router) { }
 
     public redirect(){
-      this.router.navigate(['/gerenciar-turma']);
+      this.router.navigate(['/turma-home'],{queryParams:{cpf:this.cpfAtual, id:this.turmaAtual}});
     }
 
     cadastroNovoRoteiro(nome:string){
         this.roteiro.nome = nome;
         this.roteiro.donoCpf = this.cpfAtual;
+        this.roteiro.id = '-1';
         this.roteiroService.addRoteiro(this.roteiro).then(
           () => this.redirect()
         )
     }
 
   ngOnInit() {
+    this.roteiro = new Roteiro;
     this.route
         .queryParams
         .subscribe(params => {
-            this.cpfAtual = params['cpfAtual'];
+            this.cpfAtual = params['cpfAtual'],
+            this.turmaAtual = params['turmaAtual']
         });
   }
 

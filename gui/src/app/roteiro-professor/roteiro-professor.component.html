@@ -2,7 +2,7 @@
   <button (click)="setRender('Adicionar')">Adicionar Questão</button>
 
   <div *ngIf="this.renderAtual() == 'Adicionar'">
-    <app-cadastrar-questao [cpfAtual]='this.cpfAtual'></app-cadastrar-questao>
+    <app-cadastrar-questao [id]='this.id'></app-cadastrar-questao>
   </div>
 
 </div>

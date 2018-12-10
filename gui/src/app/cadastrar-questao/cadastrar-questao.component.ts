@@ -10,12 +10,7 @@ import { Questao } from '../shared/questao.model';
 export class CadastrarQuestaoComponent implements OnInit {
 
   @Input()
-  private cpfAtual;
-  @Input()
-  private id;
-
-
-
+  private id:string;
 
   constructor(
     private roteiroService: RoteiroService,
@@ -26,7 +21,7 @@ export class CadastrarQuestaoComponent implements OnInit {
     let q = new Questao;
     q.pergunta = pergunta;
     q.respostaEsperada = resposta;
-    this.roteiroService.addQuestao("0.14542286462426346", q)
+    this.roteiroService.addQuestao(this.id, q)
     .then(
       value => {
         if(pergunta !== ""){
@@ -47,7 +42,6 @@ export class CadastrarQuestaoComponent implements OnInit {
 }
 
   ngOnInit() {
-    this.id = "070";
   }
 
 }

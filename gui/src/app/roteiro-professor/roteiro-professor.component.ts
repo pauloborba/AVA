@@ -29,12 +29,11 @@ export class RoteiroProfessorComponent implements OnInit {
 
 
   ngOnInit() {
-    this.cpfatual = "060";
-    this.id = "070";
     this.route
         .queryParams
         .subscribe(params => {
-            this.cpfatual = params['cpf'];
+            this.cpfatual = params['cpfAtual'];
+            this.id = params['id'];
         });
   }
 
