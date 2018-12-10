@@ -44,22 +44,22 @@ export class DummyDbComponent implements OnInit {
       ])
       .then( () => {
         Promise.all([
-          this.addQuestao('1', 'Pergunta 1', 'Resposta esperada 1'),
-          this.addQuestao('1', 'Pergunta 2', 'Resposta esperada 2'),
-          this.addQuestao('1', 'Pergunta 3', 'Resposta esperada 3'),
-          this.addQuestao('1', 'Pergunta 4', 'Resposta esperada 4'),
-          this.addQuestao('2', 'Pergunta 1', 'Resposta esperada 1'),
-          this.addQuestao('2', 'Pergunta 2', 'Resposta esperada 2'),
-          this.addQuestao('2', 'Pergunta 3', 'Resposta esperada 3'),
-          this.addQuestao('2', 'Pergunta 4', 'Resposta esperada 4'),
-          this.addQuestao('3', 'Pergunta 1', 'Resposta esperada 1'),
-          this.addQuestao('3', 'Pergunta 2', 'Resposta esperada 2'),
-          this.addQuestao('3', 'Pergunta 3', 'Resposta esperada 3'),
-          this.addQuestao('3', 'Pergunta 4', 'Resposta esperada 4'),
-          this.addQuestao('4', 'Pergunta 1', 'Resposta esperada 1'),
-          this.addQuestao('4', 'Pergunta 2', 'Resposta esperada 2'),
-          this.addQuestao('4', 'Pergunta 3', 'Resposta esperada 3'),
-          this.addQuestao('4', 'Pergunta 4', 'Resposta esperada 4'),
+          this.addQuestao('1', 'Corpo da pergunta de número 1?', 'Resposta esperada 1'),
+          this.addQuestao('1', 'Corpo da pergunta de número 2?', 'Resposta esperada 2'),
+          this.addQuestao('1', 'Corpo da pergunta de número 3?', 'Resposta esperada 3'),
+          this.addQuestao('1', 'Corpo da pergunta de número 4?', 'Resposta esperada 4'),
+          this.addQuestao('2', 'Corpo da pergunta de número 1?', 'Resposta esperada 1'),
+          this.addQuestao('2', 'Corpo da pergunta de número 2?', 'Resposta esperada 2'),
+          this.addQuestao('2', 'Corpo da pergunta de número 3?', 'Resposta esperada 3'),
+          this.addQuestao('2', 'Corpo da pergunta de número 4?', 'Resposta esperada 4'),
+          this.addQuestao('3', 'Corpo da pergunta de número 1?', 'Resposta esperada 1'),
+          this.addQuestao('3', 'Corpo da pergunta de número 2?', 'Resposta esperada 2'),
+          this.addQuestao('3', 'Corpo da pergunta de número 3?', 'Resposta esperada 3'),
+          this.addQuestao('3', 'Corpo da pergunta de número 4?', 'Resposta esperada 4'),
+          this.addQuestao('4', 'Corpo da pergunta de número 1?', 'Resposta esperada 1'),
+          this.addQuestao('4', 'Corpo da pergunta de número 2?', 'Resposta esperada 2'),
+          this.addQuestao('4', 'Corpo da pergunta de número 3?', 'Resposta esperada 3'),
+          this.addQuestao('4', 'Corpo da pergunta de número 4?', 'Resposta esperada 4'),
         ])
         .then(() => {
           Promise.all([
@@ -101,64 +101,64 @@ export class DummyDbComponent implements OnInit {
                 ])
                 .then(() => {
                   const qr = new QuestaoRespondida;
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '1', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '2', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '3', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '4', 1, qr);
 
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '1', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '2', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '3', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '4', 1, qr);
                   
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '1', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '2', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '3', 1, qr);
-                  qr.pergunta = "Pergunta 1";
+                  qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
@@ -166,64 +166,64 @@ export class DummyDbComponent implements OnInit {
                   
                   // ------------------------------------------------------------------------
 
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '1', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '2', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '3', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '4', 2, qr);
 
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '1', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '2', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '3', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '4', 2, qr);
                   
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '1', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '2', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '3', 2, qr);
-                  qr.pergunta = "Pergunta 2";
+                  qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
@@ -231,64 +231,64 @@ export class DummyDbComponent implements OnInit {
 
                   // ------------------------------------------------------------------------
 
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '1', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '2', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '3', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '4', 3, qr);
 
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '1', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '2', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '3', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '4', 3, qr);
                   
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '1', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '2', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '3', 3, qr);
-                  qr.pergunta = "Pergunta 3";
+                  qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
@@ -296,64 +296,64 @@ export class DummyDbComponent implements OnInit {
 
                   // ------------------------------------------------------------------------
 
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '1', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '2', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '3', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('3', 'Turma 1', '4', 4, qr);
 
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '1', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '2', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '3', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('4', 'Turma 1', '4', 4, qr);
                   
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '1', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '2', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
                   this.matriculaService.addQuestaoRespondida('6', 'Turma 2', '3', 4, qr);
-                  qr.pergunta = "Pergunta 4";
+                  qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
