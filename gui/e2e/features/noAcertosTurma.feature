@@ -1,4 +1,4 @@
-Feature: Self-Assessment
+Feature: Número de acertos da turma em  um roteiro
 	Como um instrutor 
 	Eu quero ter acesso a quantidade de acertos da turma em cada um dos Roteiros
     Para que eu possa ter uma ideia geral do desempenho da turma
