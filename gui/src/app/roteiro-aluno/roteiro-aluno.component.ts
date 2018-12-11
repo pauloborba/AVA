@@ -76,27 +76,32 @@ export class RoteiroAlunoComponent implements OnInit {
     }
     return -1;
   }
+  // Cenario 1 e 2 de Guila
+  public giveupQuestion(modo:string){
 
-  public changeQuestion(modo:string){
-
-    if(modo == 'Desistir'){
-      this.questoesRespondidas[this.questaoAtual].status = Status.Desistida;
-      this.matriculaService.addQuestaoRespondida(this.cpfAluno, this.turmaId, this.roteiroId, this.questaoAtual, this.questoesRespondidas[this.questaoAtual]);
+    this.questoesRespondidas[this.questaoAtual].status = Status.Desistida;
+    this.matriculaService.addQuestaoRespondida(this.cpfAluno, this.turmaId, this.roteiroId, this.questaoAtual, this.questoesRespondidas[this.questaoAtual]);
+    
+    let proximaQuestao = this.getProxima(this.questaoAtual);
+    if(proximaQuestao == -1){
+      this.questaoAtual = 1;
+    }else{
+      this.questaoAtual = proximaQuestao;
     }
+  }
+
+  public askQuestion(modo:string){
+    this.questoesRespondidas[this.questaoAtual].status = Status.Pendente;
+    this.matriculaService.addQuestaoRespondida(this.cpfAluno, this.turmaId, this.roteiroId, this.questaoAtual, this.questoesRespondidas[this.questaoAtual]);
 
     let proximaQuestao = this.getProxima(this.questaoAtual);
     if(proximaQuestao == -1){
       this.questaoAtual = 1;
-    }
-    else{
+    }else{
       this.questaoAtual = proximaQuestao;
     }
-    
-    /*
-        Cenario 3 e 4 de Borba
-        Cenario 1 e 2 de Guila
-    */
   }
+
 
   publicentregarRoteiro(){
     /*
