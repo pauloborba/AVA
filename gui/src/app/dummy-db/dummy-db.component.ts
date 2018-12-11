@@ -259,7 +259,7 @@ export class DummyDbComponent implements OnInit {
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 20;
-                  qr.nota = Meta.MA
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '1', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
@@ -277,7 +277,7 @@ export class DummyDbComponent implements OnInit {
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
                   qr.tempo = 20;
-                  qr.nota = Meta.MA
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '4', 3, qr);
 
                   qr.pergunta = "Corpo da pergunta de número 3?";
