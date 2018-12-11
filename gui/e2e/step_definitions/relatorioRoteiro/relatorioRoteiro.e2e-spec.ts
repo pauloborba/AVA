@@ -37,6 +37,10 @@ defineSupportCode(function ({ Given, When, Then }) {
   When('Eu acesso o aluno {string}', function (string) {
     // Write code here that turns the phrase above into concrete actions
   });
+  When('Eu acesso {string}', function (string) {
+    // Write code here that turns the phrase above into concrete actions
+  });
+  
   
   Then('And Eu posso ver a {string} igual a {string}', function (string3, string4) {
       // Write code here that turns the phrase above into concrete actions
