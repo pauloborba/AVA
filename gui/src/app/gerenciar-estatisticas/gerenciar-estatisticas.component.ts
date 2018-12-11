@@ -22,6 +22,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
   private noQuestoesRoteiro: Map<string, number>;
   private alunosCpf: string[];
   private noAcertos: Map<string, number>;
+  private noErros: Map<string, number>;
 
   constructor(
     private turmaService: TurmaService,
@@ -34,6 +35,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
     this.nomeRoteiros = new Map<string,string>();
     this.alunosCpf = [];
     this.noAcertos = new Map<string, number>();
+    this.noErros = new Map<string, number>();
   }
 
   ngOnInit() {
@@ -64,6 +66,12 @@ export class GerenciarEstatisticasComponent implements OnInit {
                   this.noAcertos[roteiroId]++;
                 }
                 else this.noAcertos[roteiroId] = 1;
+              }
+              else {
+                if (this.noErros[roteiroId]) {
+                  this.noErros[roteiroId]++;
+                }
+                else this.noErros[roteiroId] = 1;
               }
             }
           });
