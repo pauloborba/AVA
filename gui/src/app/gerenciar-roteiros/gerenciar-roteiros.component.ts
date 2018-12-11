@@ -25,8 +25,10 @@ export class GerenciarRoteirosComponent implements OnInit {
   private estatisticas: Map<string, boolean>;
   private acertosAluno: Map<string, Map<string, number>>;
   private errosAluno: Map<string, Map<string, number>>;
+  private desempenhoAluno: Map<string, Map<string, number>>;
   private noAcertos: Map<string, number>;
   private noErros: Map<string, number>;
+  private desempenho: Map<string, number>;
 
   constructor(
     private roteiroService:RoteiroService,
@@ -42,8 +44,10 @@ export class GerenciarRoteirosComponent implements OnInit {
       this.estatisticas = new Map<string, boolean>();
       this.acertosAluno = new Map<string, Map<string, number>>();
       this.errosAluno = new Map<string, Map<string, number>>();
+      this.desempenhoAluno = new Map<string, Map<string, number>>();
       this.noAcertos = new Map<string, number>();
       this.noErros = new Map<string, number>();
+      this.desempenho = new Map<string, number>();
     }
 
   ngOnInit() {
@@ -91,6 +95,10 @@ export class GerenciarRoteirosComponent implements OnInit {
             }
             this.acertosAluno[pessoa.cpf] = this.noAcertos;
             this.errosAluno[pessoa.cpf] = this.noErros;
+            const total = this.noAcertos[roteiro.id] + this.noErros[roteiro.id];
+            
+            this.desempenho[roteiro.id] = Math.round(100 * this.noAcertos[roteiro.id] / total); 
+            this.desempenhoAluno[pessoa.cpf] = this.desempenho;
           })
         });
 
