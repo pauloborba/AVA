@@ -23,6 +23,10 @@ defineSupportCode(function ({ Given, When, Then }) {
   Given('O aluno {string} acertou {string} questões', function (string) {
     // Write code here that turns the phrase above into concrete actions
   });
+
+  Given('O aluno {string} errou {string} questões', function (string) {
+    // Write code here that turns the phrase above into concrete actions
+  });
   
   When('Eu acesso a turma {string}', function (string) {
     // Write code here that turns the phrase above into concrete actions
