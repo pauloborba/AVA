@@ -18,3 +18,9 @@ And Eu posso ver o percentual de acerto de "90"% para o roteiro de "SaaS"
 And Eu posso ver o percentual de acerto de "40"% para o roteiro de "Testes"
 And Eu posso ver o percentual de acerto de "90"% para o roteiro de "Projeto e implementação"
 And Eu posso ver o percentual de acerto de "100"% para o roteiro de "Refatoração"
+
+Scenario: Questões certas
+Given O aluno "Claudio Carvalho" acertou "5" questões 
+And Eu estou na página da "Alunos"
+When Eu acesso o aluno "Claudio Carvalho"
+Then Eu posso ver a "Quantidade de acertos" igual a "5"
