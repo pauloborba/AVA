@@ -66,34 +66,39 @@ export class GerenciarEstatisticasComponent implements OnInit {
           this.matriculaService.getQuestoesRespondidas(cpf, this.turmaAtual, roteiroId)
           .then(questoesRespondidas => {
             for (var i = 1; i <= this.noQuestoesRoteiro[roteiroId]; i++) {
-              if (questoesRespondidas[i].nota === Meta.MPA || questoesRespondidas[i].nota === Meta.MA) {
-                if (this.noAcertos[roteiroId]) {
-                  this.noAcertos[roteiroId]++;
-                }
-                else this.noAcertos[roteiroId] = 1;
+              if (this.isCorrect(questoesRespondidas,i)) {
+                this.increment(this.noAcertos, roteiroId);
               }
               else {
-                if (this.noErros[roteiroId]) {
-                  this.noErros[roteiroId]++;
-                }
-                else this.noErros[roteiroId] = 1;
+                this.increment(this.noErros, roteiroId);
               }
-              if (questoesRespondidas[i].status === Status.Desistida) {
-                if (this.noDesistencias[roteiroId]) {
-                  this.noDesistencias[roteiroId]++;
-                }
-                else this.noDesistencias[roteiroId] = 1;
+              
+              if (this.isDesistida(questoesRespondidas,i)) {
+                this.increment(this.noDesistencias, roteiroId);
               }
-              if (questoesRespondidas[i].status === Status.Pendente) {
-                if (this.noDesistencias[roteiroId]) {
-                  this.noPerguntas[roteiroId]++;
-                }
-                else this.noPerguntas[roteiroId] = 1;
+              if (this.isPendente(questoesRespondidas, i)) {
+                this.increment(this.noPerguntas, roteiroId);
               }
             }
           });
         });
       });
     });
+  }
+  
+  public increment(map: Map<string, number>, roteiroId: string) {
+    if (map[roteiroId]) {
+      map[roteiroId]++;
+    }
+    else map[roteiroId] = 1;
+  }
+  public isCorrect(questoesRespondidas: Map<number,QuestaoRespondida>, index: number) {
+    return (questoesRespondidas[index].nota === Meta.MPA || questoesRespondidas[index].nota === Meta.MA);  
+  }
+  public isDesistida(questoesRespondidas: Map<number,QuestaoRespondida>, index: number) {
+    return (questoesRespondidas[index].status === Status.Desistida);  
+  }
+  public isPendente(questoesRespondidas: Map<number,QuestaoRespondida>, index: number) {
+    return (questoesRespondidas[index].status === Status.Pendente);  
   }
 }
