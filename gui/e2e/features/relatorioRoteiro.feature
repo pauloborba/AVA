@@ -24,3 +24,9 @@ Given O aluno "Claudio Carvalho" acertou "5" questões
 And Eu estou na página da "Alunos"
 When Eu acesso o aluno "Claudio Carvalho"
 Then Eu posso ver a "Quantidade de acertos" igual a "5"
+
+Scenario: Questões erradas
+Given O aluno "Claudio Carvalho" errou "2" questões
+And Eu estou na página "Alunos"
+When Eu acesso o aluno "Claudio Carvalho"
+Then Eu posso ver a "Quantidade de erros" igual a "2"
