@@ -30,11 +30,20 @@ export class RoteiroAlunoComponent implements OnInit {
       this.questoesRespondidas = []
   }
 
-  public getStatus(){
-    if (this.questoesRespondidas[this.questaoAtual].status == Status.Pendente){
-      this.status="Pendente";
+  public redirect() {
+    this.router.navigate(['/turmas'],{queryParams: {cpf: this.cpfAluno, id:this.turmaId}});
+  }
+
+  public entregarRoteiro(){
+    if(this.questaoAtual == 0){
+      alert("roteiro concluido com sucesso");
+      this.redirect();
+    }
+    else{
+      alert("você não pode entregar, ainda tem questões pendentes!")
     }
   }
+
 
   public getProxima(questaoAtual:number):number{
      //Proxima questão não existe
@@ -86,7 +95,7 @@ export class RoteiroAlunoComponent implements OnInit {
 
     let proximaQuestao = this.getProxima(this.questaoAtual);
     if(proximaQuestao == -1){
-      this.questaoAtual = 1;
+      this.questaoAtual = 0;
     }
     else{
       this.questaoAtual = proximaQuestao;

@@ -1,4 +1,5 @@
 <div>
+    <p *ngIf="this.questaoAtual==0">Roteiro Concluido, pode entregar</p>
     <app-questao [nQuestao]='this.questaoAtual' [idRoteiro]='this.roteiroId'></app-questao>
     <p id="status">{{this.status}}</p>
     <div>
