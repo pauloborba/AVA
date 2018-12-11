@@ -27,7 +27,7 @@ export class RoteiroAlunoComponent implements OnInit {
     private matriculaService: MatriculaService,
     private route: ActivatedRoute,
     private router: Router){
-      this.questoesRespondidas = []
+    this.questoesRespondidas = []
   }
 
   public getStatus(){
@@ -76,6 +76,7 @@ export class RoteiroAlunoComponent implements OnInit {
     }
     return -1;
   }
+
   // Cenario 1 e 2 de Guila
   public giveupQuestion(modo:string){
 

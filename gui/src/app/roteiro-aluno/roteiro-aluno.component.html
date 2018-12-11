@@ -2,8 +2,13 @@
     <app-questao [nQuestao]='this.questaoAtual' [idRoteiro]='this.roteiroId'></app-questao>
     <p id="status">{{this.status}}</p>
     <div>
+<<<<<<< HEAD
             <button id="1" (click) = 'giveupQuestion("Desistir")'>Desistir</button>
             <button id="2" (click) = 'askQuestion("Perguntar")'>Perguntar</button>
+=======
+            <button id="1" (click) = 'changeQuestion("Desistir")'>Desistir</button>
+            <button id="2" (click) = 'changeQuestion("Perguntar")'>Perguntar</button>
+>>>>>>> 2316ff55909f1283517d156a0ef11300789ad0c9
             <button id="3" (click)='entregarRoteiro()'>Entregar Roteiro</button>
     </div>
 </div>
