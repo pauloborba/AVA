@@ -9,7 +9,7 @@ export class QuestaoRespondida {
     public constructor() {
         this._pergunta = "";
         this._resposta = "";
-        this._status = Status.Pendente;
+        this._status = undefined;
         this._tempo = -1;
     }
 
