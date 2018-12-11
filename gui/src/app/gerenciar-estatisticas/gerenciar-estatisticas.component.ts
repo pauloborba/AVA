@@ -4,6 +4,7 @@ import { MatriculaService } from '../shared/service/matricula.service';
 import { Meta } from '../shared/meta.model';
 import { QuestaoRespondida } from '../shared/questaoresponida.model';
 import { RoteiroService } from '../shared/service/roteiro.service';
+import { Status } from '../shared/status.model';
 
 @Component({
   selector: 'app-gerenciar-estatisticas',
@@ -23,6 +24,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
   private alunosCpf: string[];
   private noAcertos: Map<string, number>;
   private noErros: Map<string, number>;
+  private noDesistencias: Map<string, number>;
 
   constructor(
     private turmaService: TurmaService,
@@ -36,6 +38,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
     this.alunosCpf = [];
     this.noAcertos = new Map<string, number>();
     this.noErros = new Map<string, number>();
+    this.noDesistencias = new Map<string, number>();
   }
 
   ngOnInit() {
@@ -72,6 +75,12 @@ export class GerenciarEstatisticasComponent implements OnInit {
                   this.noErros[roteiroId]++;
                 }
                 else this.noErros[roteiroId] = 1;
+              }
+              if (questoesRespondidas[i].status === Status.Desistida) {
+                if (this.noDesistencias[roteiroId]) {
+                  this.noDesistencias[roteiroId]++;
+                }
+                else this.noDesistencias[roteiroId] = 1;
               }
             }
           });
