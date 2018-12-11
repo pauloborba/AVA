@@ -9,6 +9,7 @@
         <tr *ngFor="let a of alunos">
           <td>{{a.nome}}: </td>
           <td>Acertos: {{this.acertosAluno[a.cpf][r.id]}}</td>
+          <td>Erros: {{this.errosAluno[a.cpf][r.id]}}</td>
         </tr>  
       </div>
     </tr>

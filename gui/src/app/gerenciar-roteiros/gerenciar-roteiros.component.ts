@@ -24,7 +24,9 @@ export class GerenciarRoteirosComponent implements OnInit {
   private noQuestoes: Map<string, number>;
   private estatisticas: Map<string, boolean>;
   private acertosAluno: Map<string, Map<string, number>>;
+  private errosAluno: Map<string, Map<string, number>>;
   private noAcertos: Map<string, number>;
+  private noErros: Map<string, number>;
 
   constructor(
     private roteiroService:RoteiroService,
@@ -39,7 +41,9 @@ export class GerenciarRoteirosComponent implements OnInit {
       this.noQuestoes = new Map<string, number>();
       this.estatisticas = new Map<string, boolean>();
       this.acertosAluno = new Map<string, Map<string, number>>();
+      this.errosAluno = new Map<string, Map<string, number>>();
       this.noAcertos = new Map<string, number>();
+      this.noErros = new Map<string, number>();
     }
 
   ngOnInit() {
@@ -74,13 +78,19 @@ export class GerenciarRoteirosComponent implements OnInit {
           .then(qrs => {
             console.log(pessoa.cpf, this.turmaAtual, roteiro.id, this.noQuestoes[roteiro.id])
             for (var i = 1; i < this.noQuestoes[roteiro.id]; i++) {
-              if (!(qrs[i].nota === Meta.MANA)) {
+              if (qrs[i].nota === Meta.MANA) {
+                if (this.noErros[roteiro.id]){
+                  this.noErros[roteiro.id]++;
+                } else this,this.noErros[roteiro.id] = 1
+              }
+              else {
                 if (this.noAcertos[roteiro.id]){
                   this.noAcertos[roteiro.id]++;
                 } else this.noAcertos[roteiro.id] = 1;
               } 
             }
             this.acertosAluno[pessoa.cpf] = this.noAcertos;
+            this.errosAluno[pessoa.cpf] = this.noErros;
           })
         });
 
