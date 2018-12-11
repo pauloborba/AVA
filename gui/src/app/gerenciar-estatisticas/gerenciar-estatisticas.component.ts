@@ -25,6 +25,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
   private noAcertos: Map<string, number>;
   private noErros: Map<string, number>;
   private noDesistencias: Map<string, number>;
+  private noPerguntas: Map<string, number>;
 
   constructor(
     private turmaService: TurmaService,
@@ -39,6 +40,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
     this.noAcertos = new Map<string, number>();
     this.noErros = new Map<string, number>();
     this.noDesistencias = new Map<string, number>();
+    this.noPerguntas = new Map<string, number>();
   }
 
   ngOnInit() {
@@ -81,6 +83,12 @@ export class GerenciarEstatisticasComponent implements OnInit {
                   this.noDesistencias[roteiroId]++;
                 }
                 else this.noDesistencias[roteiroId] = 1;
+              }
+              if (questoesRespondidas[i].status === Status.Pendente) {
+                if (this.noDesistencias[roteiroId]) {
+                  this.noPerguntas[roteiroId]++;
+                }
+                else this.noPerguntas[roteiroId] = 1;
               }
             }
           });
