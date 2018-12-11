@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TurmaService } from '../shared/service/turma.service';
-import { MatriculaService } from '../shared/service/matricula.service';
-import { Meta } from '../shared/meta.model';
-import { QuestaoRespondida } from '../shared/questaoresponida.model';
+import { Component, OnInit, Input } from '@angular/core'
 import { RoteiroService } from '../shared/service/roteiro.service';
 import { Status } from '../shared/status.model';
+import { MatriculaService } from '../shared/service/matricula.service';
+import { TurmaService } from '../shared/service/turma.service';
+import { QuestaoRespondida } from '../shared/questaoresponida.model';
+import { Meta } from '../shared/meta.model';
 
 @Component({
   selector: 'app-gerenciar-estatisticas',
@@ -26,6 +26,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
   private noErros: Map<string, number>;
   private noDesistencias: Map<string, number>;
   private noPerguntas: Map<string, number>;
+  private desempenhoTurma: Map<string, number>;
 
   constructor(
     private turmaService: TurmaService,
@@ -41,6 +42,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
     this.noErros = new Map<string, number>();
     this.noDesistencias = new Map<string, number>();
     this.noPerguntas = new Map<string, number>();
+    this.desempenhoTurma = new Map<string, number>();
   }
 
   ngOnInit() {
@@ -64,7 +66,7 @@ export class GerenciarEstatisticasComponent implements OnInit {
       this.alunosCpf.forEach(cpf => {
         this.roteirosId.forEach(roteiroId => {
           this.matriculaService.getQuestoesRespondidas(cpf, this.turmaAtual, roteiroId)
-          .then(questoesRespondidas => {
+          .then(questoesRespondidas => {  
             for (var i = 1; i <= this.noQuestoesRoteiro[roteiroId]; i++) {
               if (this.isCorrect(questoesRespondidas,i)) {
                 this.increment(this.noAcertos, roteiroId);
@@ -80,6 +82,8 @@ export class GerenciarEstatisticasComponent implements OnInit {
                 this.increment(this.noPerguntas, roteiroId);
               }
             }
+            const total: number = this.noAcertos[roteiroId] + this.noErros[roteiroId];
+            this.desempenhoTurma[roteiroId] = 100 * this.noAcertos[roteiroId] / total;
           });
         });
       });
