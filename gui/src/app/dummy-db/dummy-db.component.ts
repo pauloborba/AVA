@@ -105,128 +105,152 @@ export class DummyDbComponent implements OnInit {
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '1', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '2', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '3', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '4', 1, qr);
 
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '1', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '2', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '3', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '4', 1, qr);
                   
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '1', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '2', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '3', 1, qr);
                   qr.pergunta = "Corpo da pergunta de número 1?";
                   qr.resposta = "Resposta 1";
                   qr.status = Status.Concluida;
                   qr.tempo = 1233;
+                  qr.nota = Meta.MANA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '4', 1, qr);
                   
                   // ------------------------------------------------------------------------
 
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '1', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '2', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '3', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '4', 2, qr);
 
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '1', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '2', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '3', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '4', 2, qr);
                   
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '1', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '2', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '3', 2, qr);
                   qr.pergunta = "Corpo da pergunta de número 2?";
                   qr.resposta = "Resposta 2";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Pendente;
+                  qr.tempo = 35;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '4', 2, qr);
 
                   // ------------------------------------------------------------------------
@@ -234,129 +258,153 @@ export class DummyDbComponent implements OnInit {
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '1', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '2', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '3', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '4', 3, qr);
 
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '1', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '2', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '3', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '4', 3, qr);
                   
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '1', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '2', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '3', 3, qr);
                   qr.pergunta = "Corpo da pergunta de número 3?";
                   qr.resposta = "Resposta 3";
                   qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.tempo = 20;
+                  qr.nota = Meta.MA
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '4', 3, qr);
 
                   // ------------------------------------------------------------------------
 
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '1', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '2', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '3', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('3', 'IF688', '4', 4, qr);
 
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '1', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '2', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '3', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('4', 'IF688', '4', 4, qr);
                   
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '1', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '2', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '3', 4, qr);
                   qr.pergunta = "Corpo da pergunta de número 4?";
                   qr.resposta = "Resposta 4";
-                  qr.status = Status.Concluida;
-                  qr.tempo = 1233;
+                  qr.status = Status.Desistida;
+                  qr.tempo = 30;
+                  qr.nota = Meta.NULL
                   this.matriculaService.addQuestaoRespondida('6', 'IF714', '4', 4, qr);
 
 
