@@ -4,8 +4,14 @@
       <td>{{r.nome}}</td>
       <button  (click) = 'redirectAcessarRoteiro(r.id, this.cpfAtual)'> Editar </button>
       <button  (click) = 'adicionarATurma(this.turmaAtual, r.id)'> Adicionar à turma </button>
-      <button> Estatísticas do Roteiro</button>
-  </tr>
+      <button (click)= 'mostrarEstatisticas(r.id)'>Estatísticas do Roteiro</button>
+      <div *ngIf="this.estatisticas[r.id]">
+        <tr *ngFor="let a of alunos">
+          <td>{{a.nome}}: </td>
+          <td>Acertos: {{this.acertosAluno[a.cpf][r.id]}}</td>
+        </tr>  
+      </div>
+    </tr>
 </table>
 
 <button (click)="adicionarRoteiro()">Adicionar Roteiro</button>

@@ -3,6 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {Roteiro} from '../shared/roteiro.model';
 import {RoteiroService} from '../shared/service/roteiro.service';
 import {TurmaService} from '../shared/service/turma.service';
+import { Pessoa } from '../shared/pessoa.model';
+import { PessoaService } from '../shared/service/pessoa.service';
+import { MatriculaService } from '../shared/service/matricula.service';
+import { Meta } from '../shared/meta.model';
 
 @Component({
   selector: 'app-gerenciar-roteiros',
@@ -15,7 +19,76 @@ export class GerenciarRoteirosComponent implements OnInit {
   @Input()
   public turmaAtual:string;
   
-  private roteiros:Roteiro[];
+  private alunos: Pessoa[];
+  private roteiros: Roteiro[];
+  private noQuestoes: Map<string, number>;
+  private estatisticas: Map<string, boolean>;
+  private acertosAluno: Map<string, Map<string, number>>;
+  private noAcertos: Map<string, number>;
+
+  constructor(
+    private roteiroService:RoteiroService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private turmaService: TurmaService,
+    private pessoaService: PessoaService,
+    private matriculaService: MatriculaService,
+  ) { 
+      this.alunos = [];
+      this.roteiros = [];
+      this.noQuestoes = new Map<string, number>();
+      this.estatisticas = new Map<string, boolean>();
+      this.acertosAluno = new Map<string, Map<string, number>>();
+      this.noAcertos = new Map<string, number>();
+    }
+
+  ngOnInit() {
+    this.roteiroService.getRoteirosDono(this.cpfAtual)
+    .then((value) => {
+          this.roteiros = value;
+          value.forEach(roteiro => {
+            this.noQuestoes[roteiro.id] = roteiro.noQuestoes;
+            this.estatisticas[roteiro.id] = false;
+          });
+        }
+    );
+
+    this.turmaService.getAlunos(this.turmaAtual)
+    .then(alunos => {
+      // Gets cpf from all students
+      alunos.forEach(aluno => {
+        this.alunos.push(aluno);
+      });
+
+      // Gets all Pessoa data with students cpf info
+      this.alunos.forEach((pessoa, index) => {
+        this.pessoaService.getPessoa(pessoa.cpf)
+        .then(value => {
+          this.alunos[index] = value;
+        });
+
+
+
+        this.roteiros.forEach(roteiro => {
+          this.matriculaService.getQuestoesRespondidas(pessoa.cpf, this.turmaAtual, roteiro.id)
+          .then(qrs => {
+            console.log(pessoa.cpf, this.turmaAtual, roteiro.id, this.noQuestoes[roteiro.id])
+            for (var i = 1; i < this.noQuestoes[roteiro.id]; i++) {
+              if (!(qrs[i].nota === Meta.MANA)) {
+                if (this.noAcertos[roteiro.id]){
+                  this.noAcertos[roteiro.id]++;
+                } else this.noAcertos[roteiro.id] = 1;
+              } 
+            }
+            this.acertosAluno[pessoa.cpf] = this.noAcertos;
+          })
+        });
+
+
+      });
+
+    });
+  }
 
   public redirectAcessarRoteiro(id: string){
     this.router.navigate(['./roteiro-professor'],{queryParams:{cpfAtual:this.cpfAtual, id:id}})
@@ -33,20 +106,13 @@ export class GerenciarRoteirosComponent implements OnInit {
     return false;
   }
 
-  public adicionarRoteiro(){
+  public adicionarRoteiro() {
     this.router.navigate(['/cadastro-roteiro'],{queryParams:{cpfAtual:this.cpfAtual, turmaAtual:this.turmaAtual}});
   }
-  
-  constructor(
-    private roteiroService:RoteiroService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private turmaService:TurmaService,) { }
 
-  ngOnInit() {
-    this.roteiroService.getRoteirosDono(this.cpfAtual).then(
-        (value) => {this.roteiros = value}
-    )
+  public mostrarEstatisticas(roteiroId) {
+    this.estatisticas[roteiroId] = !this.estatisticas[roteiroId];
   }
+  
 
 }
