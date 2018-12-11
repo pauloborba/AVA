@@ -7,6 +7,7 @@ import { Pessoa } from '../shared/pessoa.model';
 import { PessoaService } from '../shared/service/pessoa.service';
 import { MatriculaService } from '../shared/service/matricula.service';
 import { Meta } from '../shared/meta.model';
+import { QuestaoRespondida } from '../shared/questaoresponida.model';
 
 @Component({
   selector: 'app-gerenciar-roteiros',
@@ -80,9 +81,8 @@ export class GerenciarRoteirosComponent implements OnInit {
         this.roteiros.forEach(roteiro => {
           this.matriculaService.getQuestoesRespondidas(pessoa.cpf, this.turmaAtual, roteiro.id)
           .then(qrs => {
-            console.log(pessoa.cpf, this.turmaAtual, roteiro.id, this.noQuestoes[roteiro.id])
             for (var i = 1; i < this.noQuestoes[roteiro.id]; i++) {
-              if (qrs[i].nota === Meta.MANA) {
+              if (this.isErro(qrs, i)) {
                 if (this.noErros[roteiro.id]){
                   this.noErros[roteiro.id]++;
                 } else this,this.noErros[roteiro.id] = 1
@@ -97,7 +97,7 @@ export class GerenciarRoteirosComponent implements OnInit {
             this.errosAluno[pessoa.cpf] = this.noErros;
             const total = this.noAcertos[roteiro.id] + this.noErros[roteiro.id];
             
-            this.desempenho[roteiro.id] = Math.round(100 * this.noAcertos[roteiro.id] / total); 
+            this.desempenho[roteiro.id] = this.calculateDesempenho(roteiro.id, total); 
             this.desempenhoAluno[pessoa.cpf] = this.desempenho;
           })
         });
@@ -106,6 +106,14 @@ export class GerenciarRoteirosComponent implements OnInit {
       });
 
     });
+  }
+
+  private isErro(map: Map<number, QuestaoRespondida>, index: number): boolean {
+    return map[index].nota === Meta.MANA
+  }
+
+  private calculateDesempenho(roteiroId: string, total: number): number {
+    return Math.round(100 * this.noAcertos[roteiroId] / total)
   }
 
   public redirectAcessarRoteiro(id: string){
