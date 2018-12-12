@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RoteiroProfessorComponent implements OnInit {
 
+  private turmaAtual;
   private cpfatual;
   private id;
   private render:string;
@@ -34,6 +35,7 @@ export class RoteiroProfessorComponent implements OnInit {
         .subscribe(params => {
             this.cpfatual = params['cpfAtual'];
             this.id = params['id'];
+            this.turmaAtual = params['turmaId'];
         });
   }
 

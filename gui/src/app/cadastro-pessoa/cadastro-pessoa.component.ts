@@ -20,17 +20,21 @@ export class CadastroPessoaComponent implements OnInit {
     private router: Router) { }
 
   cadastroNovoPessoa(cpf:string, Nome:string, Email:string, Senha:string){
-    var pessoa = new Pessoa;
-    pessoa.cpf = cpf;
-    pessoa.email = Email;
-    pessoa.nome = Nome;
-    pessoa.senha = Senha;
-    if(this.alunoService.addPessoa(pessoa)){
+    if(this.alunoService.addPessoa(this.makePessoa(cpf, Nome, Email, Senha))){
       this.redirect(cpf);
     }
     else{
       console.log("oa deu ruim");
     }
+  }
+
+  makePessoa(cpf:string, Nome:string, Email:string, Senha:string): Pessoa{
+    var pessoa = new Pessoa;
+    pessoa.cpf = cpf;
+    pessoa.email = Email;
+    pessoa.nome = Nome;
+    pessoa.senha = Senha;
+    return pessoa;
   }
 
   ngOnInit() {

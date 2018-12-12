@@ -13,7 +13,7 @@
   </div>
 
   <div *ngIf="this.renderAtual() == 'Aluno'">
-    <app-estatistica-aluno [id]='this.id'></app-estatistica-aluno>
+    <app-estatistica-aluno [roteiroId]='this.id' [turmaId]='this.turmaAtual'></app-estatistica-aluno>
   </div>
 
 </div>

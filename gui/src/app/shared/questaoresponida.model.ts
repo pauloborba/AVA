@@ -1,16 +1,20 @@
 import { Status } from "./status.model";
+import { Meta } from "./meta.model";
+
 
 export class QuestaoRespondida {
     private _pergunta: string;
     private _resposta: string;
     private _status: Status;
     private _tempo: number;
+    private _nota: Meta;
 
     public constructor() {
         this._pergunta = "";
         this._resposta = "";
-        this._status = Status.Pendente;
+        this._status = undefined;
         this._tempo = -1;
+        this._nota = Meta.NULL;
     }
 
     get pergunta(): string {
@@ -45,11 +49,20 @@ export class QuestaoRespondida {
         this._tempo = value;
     }
 
+    get nota(): Meta {
+        return this._nota;
+    }
+
+    set nota(value: Meta) {
+        this._nota = value;
+    }
+
     public copyFrom(from: QuestaoRespondida) {
         this._pergunta = from.pergunta;
         this._resposta = from.resposta;
         this._status = from.status;
         this._tempo = from.tempo;
+        this._nota = from.nota;
     }
 
     public clone(): QuestaoRespondida {
@@ -64,6 +77,7 @@ export class QuestaoRespondida {
             resposta: this.resposta,
             status: this.status,
             tempo: this.tempo,
+            nota: this.nota,
         };
     }
 
@@ -73,6 +87,7 @@ export class QuestaoRespondida {
             _resposta: json.resposta,
             _status: json.status,
             _tempo: json.tempo,
+            _nota: json.nota,
         });
     }
 

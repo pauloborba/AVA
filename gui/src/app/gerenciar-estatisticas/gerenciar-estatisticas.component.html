@@ -4,11 +4,17 @@
 
 <div>
 
+  <p><strong>Turma {{this.turmaAtual}}</strong></p>
   <!-- Para cada roteiro-->
-  <p>N de Acertos:  </p>
-  <p>N de Erros: </p>
-  <p>N de desistencias: </p>
-  <p>N de perguntas: </p>
+  <tr *ngFor="let id of roteirosId">
+    <div id='{{id}}'>
+      <p><strong>{{this.nomeRoteiros[id]}}</strong></p>
+      <p class='acertos'>Número de Acertos:  {{this.noAcertos[id]}}</p>
+      <p class='erros'>Número de Erros: {{this.noErros[id]}}</p>
+      <p class='desistencias'>Número de Desistências: {{this.noDesistencias[id]}}</p>
+      <p class='perguntas'>Número de Perguntas: {{this.noPerguntas[id]}}</p>
+    </div>
+  </tr>
 
   <!-- Saindo do For -->
   <p> Estatísticas da turma para cada Roteiro</p>
