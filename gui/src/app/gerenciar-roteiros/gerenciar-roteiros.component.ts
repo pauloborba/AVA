@@ -18,7 +18,7 @@ export class GerenciarRoteirosComponent implements OnInit {
   private roteiros:Roteiro[];
 
   public redirectAcessarRoteiro(id: string){
-    this.router.navigate(['./roteiro-professor'],{queryParams:{cpfAtual:this.cpfAtual, id:id}})
+    this.router.navigate(['./roteiro-professor'],{queryParams:{cpfAtual:this.cpfAtual, id:id, turmaId:this.turmaAtual}})
   }
 
   public adicionarATurma(turmaId: string, roteiroId: string): Boolean{
