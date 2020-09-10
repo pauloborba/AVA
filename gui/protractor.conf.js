@@ -14,6 +14,11 @@ exports.config = {
     './e2e/features/**/*.feature'  // Specs here are the cucumber feature files
   ],
 
+  capabilities: {
+    browserName: 'chrome',
+    chromeOptions: {binary: '/home/mario/.local/opt/google/chrome/google-chrome'}
+  },
+
   // cucumber command line options
   cucumberOpts: {
     require: ['./e2e/step_definitions/**/*.e2e-spec.ts'],  // require step definition files before executing features

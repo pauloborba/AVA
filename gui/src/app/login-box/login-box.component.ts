@@ -25,8 +25,7 @@ export class LoginBoxComponent implements OnInit {
     this.router.navigate(['/cadastro-pessoa']);
   }
 
-  public checkExistent(cpf:String, senha:String) : Boolean{
-      // Make get to check if there is an aluno with that user
+  public cpfExistent(cpf:String, senha:String):Boolean{
     this.pessoaService.getPessoa(cpf)
       .then(
         value => {
@@ -43,6 +42,11 @@ export class LoginBoxComponent implements OnInit {
         reason => console.log("oa deu ruim")
       )
       return false;
+  }
+
+  public checkExistent(cpf:String, senha:String) : Boolean{
+      // Make get to check if there is an aluno with that user
+    return (this.cpfExistent(cpf, senha))
   }
 
 
